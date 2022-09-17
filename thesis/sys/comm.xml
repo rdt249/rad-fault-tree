@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name='COMM' gate='OR'>
+    <node name='RF' gate='OR'>
+        <event name='SEFI' rate='RF_SEFI'/>
+        <event name='SEL' rate='RF_SEL'/>
+        <event name='TID' rate='RF_TID'/>
+    </node>
+    <node name='ANT' gate='OR'>
+        <event name='TID' rate='ANT_TID'/>
+    </node>
+</node>

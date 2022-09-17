@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name='NAV' gate='OR'>
+    <node name='GPS' gate='OR'>
+        <event name='SEU' rate='GPS_SEU'/>
+        <event name='SEFI' rate='GPS_SEFI'/>
+        <event name='SEL' rate='GPS_SEL'/>
+        <event name='TID' rate='GPS_TID'/>
+    </node>
+    <node name='GYRO' gate='OR'>
+        <event name='TID' rate='GYRO_TID'/>
+    </node>
+    <node name='PROP' gate='OR'>
+        <event name='SEFI' rate='PROP_SEFI'/>
+        <event name='SEL' rate='PROP_SEL'/>
+        <event name='SEGR' rate='PROP_SEGR'/>
+        <event name='TID' rate='GPS_TID'/>
+    </node>
+</node>

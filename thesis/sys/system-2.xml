@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sys name='Z' gate='AND'>
+    <sys name='X' gate='OR'>
+        <dev name='A' risk='0.25'/>
+        <dev name='B' risk='0.5'/>
+    </sys>
+    <sys name='Y' gate='OR'>
+        <dev name='C' risk='0.25'/>
+        <dev name='D' risk='0.5'/>
+    </sys>
+</sys>

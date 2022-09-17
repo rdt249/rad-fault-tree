@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name='SRAM' gate='OR'>
+    <event name='SEFI' rate='SRAM_SEFI'/>
+    <event name='SEL' rate='SRAM_SEL' repair='1'/>
+    <event name='TID' rate='SRAM_TID' repair='\infty'/>
+</node>

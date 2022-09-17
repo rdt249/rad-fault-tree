@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name='Z' gate='OR'>
+    <node name='X' gate='AND'>
+        <event name='A' prob='0.2' delay='100'/>
+        <event name='B' prob='0.2' delay='100'/>
+    </node>
+    <node name='Y' gate='VOTE' k='2'>
+        <event name='C' prob='0.1' delay='100'/>
+        <event name='D' prob='0.1' delay='100'/>
+        <event name='E' prob='0.1' delay='100'/>
+    </node>
+    <event name='F' prob='0.01' delay='9999999999'/>
+</node>

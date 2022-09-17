@@ -1,0 +1,2558 @@
+<!-- *************************************************************************** -->
+<!-- Coverage Matrix Generated on: 9/4/2022, 9:03:46 PM from Model: ROOT/Models/NASA Tutorial -->
+<!-- *************************************************************************** -->
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Version>14.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel"></ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Center" ss:Horizontal="Center"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+   <Style ss:ID="sHeading">
+  <Alignment ss:Vertical="Center" ss:Horizontal="Center"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="sHLink" ss:Name="Hyperlink">
+  <Alignment ss:Vertical="Center" ss:Horizontal="Center"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#00FF00" ss:Underline="Single" />
+  </Style>
+  <Style ss:ID="sFnHLink" ss:Name="FnHyperlink">
+  <Alignment ss:Vertical="Center" ss:Horizontal="Center"/> 
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#0000FF" ss:Underline="Single" ss:Bold="1" />
+  </Style>
+  <Style ss:ID="sCompHLink" ss:Name="CompHyperlink">
+  <Alignment ss:Vertical="Center" ss:Horizontal="Center"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#999999" ss:Underline="Single" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="sFMHLink" ss:Name="FMHyperlink">
+  <Alignment ss:Vertical="Center" ss:Horizontal="Center"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FF0000" ss:Underline="Single" ss:Bold="1" />
+  </Style>
+  <Style ss:ID="sQuestion" ss:Name="Question">
+  <Alignment ss:Vertical="Center" ss:Horizontal="Center"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FF0000" ss:Bold="1" />
+  </Style>
+  <Style ss:ID="sEHLink" ss:Name="EffectHyperlink">
+  <Alignment ss:Vertical="Center" ss:Horizontal="Center"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#8B4513" ss:Underline="Single" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="sRHLink" ss:Name="ResponseHyperlink">
+  <Alignment ss:Vertical="Center" ss:Horizontal="Center"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#00FF00" ss:Underline="Single" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="sGSNHLink" ss:Name="GSNHyperlink">
+  <Alignment ss:Vertical="Center" ss:Horizontal="Center"/> 
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#00CED1" ss:Underline="Single" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="sInpFL" ss:Name="InputFL">
+  <Alignment ss:Vertical="Center" ss:Horizontal="Center"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#6600CC" ss:Underline="Single" ss:Bold="1" />
+  </Style>
+  <Style ss:ID="sOutFL" ss:Name="OutputFL">
+  <Alignment ss:Vertical="Center" ss:Horizontal="Center"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FF4500" ss:Underline="Single" ss:Bold="1"/>
+  </Style>
+ </Styles>
+  <Worksheet ss:Name="Parts">
+<Table>
+<Column ss:Index="2" ss:Width="150"/>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Parts</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2F3"><Data ss:Type="String">LinearRegulator</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fc"><Data ss:Type="String">Mux/DeMux</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fo"><Data ss:Type="String">Adj_Load Switch</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FN"><Data ss:Type="String">DFF</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fl"><Data ss:Type="String">Load Switch</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FM"><Data ss:Type="String">Adj_LinearRegulator</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FS"><Data ss:Type="String">PowerBus</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FX"><Data ss:Type="String">uController</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fh"><Data ss:Type="String">SRAM</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fb"><Data ss:Type="String">FRAM</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fy"><Data ss:Type="String">Resistor</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FD"><Data ss:Type="String">Logic Translator</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2F2"><Data ss:Type="String">Control</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2Fl"><Data ss:Type="String">Logic Translation</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2FF"><Data ss:Type="String">Power</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+ </Table>
+ </Worksheet>
+ <Worksheet ss:Name="Components">
+<Table>
+<Column ss:Index="2" ss:Width="102"/>
+
+<Column ss:Index="3" ss:Width="132"/>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Instances</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Parts</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2&selection=%2Fl%2FP%2Fh%2F2%2Ff"><Data ss:Type="String">uController</Data></Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FX"><Data ss:Type="String">uController</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2&selection=%2Fl%2FP%2Fh%2F2%2FI"><Data ss:Type="String">FRAM</Data></Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fb"><Data ss:Type="String">FRAM</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2&selection=%2Fl%2FP%2Fh%2F2%2FK"><Data ss:Type="String">FRAM_Res</Data></Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fy"><Data ss:Type="String">Resistor</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2FX"><Data ss:Type="String">DUT</Data></Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fh"><Data ss:Type="String">SRAM</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2Fs"><Data ss:Type="String">VUC</Data></Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FS"><Data ss:Type="String">PowerBus</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2Fa"><Data ss:Type="String">Control</Data></Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FD"><Data ss:Type="String">Logic Translator</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2FY"><Data ss:Type="String">Address</Data></Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FD"><Data ss:Type="String">Logic Translator</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2Fh"><Data ss:Type="String">Data In</Data></Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FD"><Data ss:Type="String">Logic Translator</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2Fw"><Data ss:Type="String">Data Out</Data></Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FD"><Data ss:Type="String">Logic Translator</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2FH"><Data ss:Type="String">Mux/DeMux</Data></Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fc"><Data ss:Type="String">Mux/DeMux</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+ </Table>
+ </Worksheet>
+ <Worksheet ss:Name="System">
+<Table>
+<Column ss:Index="2" ss:Width="150"/>
+
+<Column ss:Index="3" ss:Width="192"/>
+
+<Column ss:Index="4" ss:Width="144"/>
+
+<Column ss:Index="5" ss:Width="150"/>
+
+<Column ss:Index="6" ss:Width="150"/>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Parts</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Faults/ Input Fault Effect</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Degradation Effect</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Mitigation Response</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Output Fault Effect</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="7" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2F3" ><Data ss:Type="String">LinearRegulator</Data></Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2F3&selection=%2Fl%2FP%2Fw%2F3%2Ft" ><Data ss:Type="String">TID</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2F3&selection=%2Fl%2FP%2Fw%2F3%2Fv" ><Data ss:Type="String">PowerCutOff-Ref</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Out_of_spec_Vout</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3"> </Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2F3&selection=%2Fl%2FP%2Fw%2F3%2FAy" ><Data ss:Type="String">SEL</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2F3&selection=%2Fl%2FP%2Fw%2F3%2Fv" ><Data ss:Type="String">PowerCutOff-Ref</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Low_Vin</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2F3&selection=%2Fl%2FP%2Fw%2F3%2Fv" ><Data ss:Type="String">PowerCutOff-Ref</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Off_Signal</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="2" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fc" ><Data ss:Type="String">Mux/DeMux</Data></Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fc&selection=%2Fl%2FP%2Fw%2Fc%2FA" ><Data ss:Type="String">TID</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Incorrect_Data</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fc&selection=%2Fl%2FP%2Fw%2Fc%2FO" ><Data ss:Type="String">SEL</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+<Cell ss:Index="6"> </Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="5" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fo" ><Data ss:Type="String">Adj_Load Switch</Data></Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Low_Vin</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fo&selection=%2Fl%2FP%2Fw%2Fo%2F3" ><Data ss:Type="String">PowerCutOff-Ref</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3"> </Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fo&selection=%2Fl%2FP%2Fw%2Fo%2F3" ><Data ss:Type="String">PowerCutOff-Ref</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Latchup_Current</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fo&selection=%2Fl%2FP%2Fw%2Fo%2F3" ><Data ss:Type="String">PowerCutOff-Ref</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Leakage_Current</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fo&selection=%2Fl%2FP%2Fw%2Fo%2F3" ><Data ss:Type="String">PowerCutOff-Ref</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="2" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FN" ><Data ss:Type="String">DFF</Data></Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2FN&selection=%2Fl%2FP%2Fw%2FN%2Fz" ><Data ss:Type="String">TID</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Out_of_spec_Vout</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2FN&selection=%2Fl%2FP%2Fw%2FN%2FV" ><Data ss:Type="String">SEL</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+<Cell ss:Index="6"> </Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="7" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fl" ><Data ss:Type="String">Load Switch</Data></Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Low_Vin</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fl&selection=%2Fl%2FP%2Fw%2Fl%2F3" ><Data ss:Type="String">PowerCutOff-Ref</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3"> </Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fl&selection=%2Fl%2FP%2Fw%2Fl%2F3" ><Data ss:Type="String">PowerCutOff-Ref</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Latchup_Current</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fl&selection=%2Fl%2FP%2Fw%2Fl%2F3" ><Data ss:Type="String">PowerCutOff-Ref</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3"> </Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fl&selection=%2Fl%2FP%2Fw%2Fl%2Fh" ><Data ss:Type="String">SetFlag-Ref</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Flag_Set</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Leakage_Current</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fl&selection=%2Fl%2FP%2Fw%2Fl%2F3" ><Data ss:Type="String">PowerCutOff-Ref</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3"> </Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fl&selection=%2Fl%2FP%2Fw%2Fl%2Fh" ><Data ss:Type="String">SetFlag-Ref</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Flag_Set</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="9" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FM" ><Data ss:Type="String">Adj_LinearRegulator</Data></Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2FM&selection=%2Fl%2FP%2Fw%2FM%2Ft" ><Data ss:Type="String">TID</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2FM&selection=%2Fl%2FP%2Fw%2FM%2Fv" ><Data ss:Type="String">PowerCutOff-Ref</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Out_of_spec_Vout</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3"> </Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2FM&selection=%2Fl%2FP%2Fw%2FM%2FAy" ><Data ss:Type="String">SEL</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2FM&selection=%2Fl%2FP%2Fw%2FM%2Fv" ><Data ss:Type="String">PowerCutOff-Ref</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Low_Vin</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2FM&selection=%2Fl%2FP%2Fw%2FM%2Fv" ><Data ss:Type="String">PowerCutOff-Ref</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Off_Signal</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Wrong_Resistance</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Wrong_Vout</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="2" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FS" ><Data ss:Type="String">PowerBus</Data></Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2FS&selection=%2Fl%2FP%2Fw%2FS%2FUK" ><Data ss:Type="String">Software_Fault</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2FS&selection=%2Fl%2FP%2Fw%2FS%2FRB" ><Data ss:Type="String">Radiation_Fault</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="0" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FX" ><Data ss:Type="String">uController</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="20" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fh" ><Data ss:Type="String">SRAM</Data></Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fh&selection=%2Fl%2FP%2Fw%2Fh%2Fw" ><Data ss:Type="String">TID</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+<Cell ss:Index="6"> </Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fh&selection=%2Fl%2FP%2Fw%2Fh%2FF" ><Data ss:Type="String">SEL</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+<Cell ss:Index="6"> </Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fh&selection=%2Fl%2FP%2Fw%2Fh%2FK" ><Data ss:Type="String">ThermalDamage</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+<Cell ss:Index="6"> </Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fh&selection=%2Fl%2FP%2Fw%2Fh%2FL" ><Data ss:Type="String">Open</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+<Cell ss:Index="6"> </Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fh&selection=%2Fl%2FP%2Fw%2Fh%2Ft" ><Data ss:Type="String">Short</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+<Cell ss:Index="6"> </Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Incorrect_Control</Data></Cell>
+
+<Cell ss:Index="4" ss:StyleID="sEHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fh&selection=%2Fl%2FP%2Fw%2Fh%2F0lJ" ><Data ss:Type="String">Correctness</Data></Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+<Cell ss:Index="6"> </Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Incorrect_Address</Data></Cell>
+
+<Cell ss:Index="4" ss:StyleID="sEHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fh&selection=%2Fl%2FP%2Fw%2Fh%2F0lJ" ><Data ss:Type="String">Correctness</Data></Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Incorrect_Data</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Power_Disconnect</Data></Cell>
+
+<Cell ss:Index="4" ss:StyleID="sEHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fh&selection=%2Fl%2FP%2Fw%2Fh%2FGJD" ><Data ss:Type="String">Availability</Data></Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+<Cell ss:Index="6"> </Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Wrong_Vout</Data></Cell>
+
+<Cell ss:Index="4" ss:StyleID="sEHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fh&selection=%2Fl%2FP%2Fw%2Fh%2FGJD" ><Data ss:Type="String">Availability</Data></Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+<Cell ss:Index="6"> </Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Out_of_spec_Vout</Data></Cell>
+
+<Cell ss:Index="4" ss:StyleID="sEHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fh&selection=%2Fl%2FP%2Fw%2Fh%2FGJD" ><Data ss:Type="String">Availability</Data></Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+<Cell ss:Index="6"> </Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Incorrect_Data</Data></Cell>
+
+<Cell ss:Index="4" ss:StyleID="sEHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fh&selection=%2Fl%2FP%2Fw%2Fh%2F0lJ" ><Data ss:Type="String">Correctness</Data></Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sOutFL"><Data ss:Type="String">Incorrect_Data</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="2" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fb" ><Data ss:Type="String">FRAM</Data></Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fb&selection=%2Fl%2FP%2Fw%2Fb%2F2L" ><Data ss:Type="String">SEL</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+<Cell ss:Index="6"> </Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fb&selection=%2Fl%2FP%2Fw%2Fb%2FZp" ><Data ss:Type="String">TID</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+<Cell ss:Index="6"> </Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="0" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fy" ><Data ss:Type="String">Resistor</Data></Cell>
+
+ <Cell ss:Index="3" ss:StyleID="sInpFL"><Data ss:Type="String">Latchup_Current</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5" ss:StyleID="sRHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2Fy&selection=%2Fl%2FP%2Fw%2Fy%2FT" ><Data ss:Type="String">Current_Limit</Data></Cell>
+
+<Cell ss:Index="6"> </Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="2" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FD" ><Data ss:Type="String">Logic Translator</Data></Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2FD&selection=%2Fl%2FP%2Fw%2FD%2FP" ><Data ss:Type="String">TID</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+<Cell ss:Index="6"> </Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw%2FD&selection=%2Fl%2FP%2Fw%2FD%2Fc" ><Data ss:Type="String">SEL</Data></Cell>
+
+<Cell ss:Index="4"> </Cell>
+
+<Cell ss:Index="5"> </Cell>
+
+<Cell ss:Index="6"> </Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="0" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2F2" ><Data ss:Type="String">Control</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="0" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2Fl" ><Data ss:Type="String">Logic Translation</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="0" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2FF" ><Data ss:Type="String">Power</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+ </Table>
+ </Worksheet>
+ <Worksheet ss:Name="Function">
+<Table>
+<Column ss:Index="2" ss:Width="66"/>
+
+<Column ss:Index="3" ss:Width="120"/>
+
+<Column ss:Index="4" ss:Width="126"/>
+
+<Column ss:Index="5" ss:Width="120"/>
+
+<Column ss:Index="6" ss:Width="78"/>
+
+<Column ss:Index="7" ss:Width="126"/>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Parts</Data></Cell>
+
+<Cell ss:StyleID="sFnHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2FP&selection=%2Fl%2FP%2FP%2Fm"><Data ss:Type="String">DetectMitigate</Data></Cell>
+
+<Cell ss:StyleID="sFnHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2FP&selection=%2Fl%2FP%2FP%2FO"><Data ss:Type="String">PowerRegulation</Data></Cell>
+
+<Cell ss:StyleID="sFnHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2FP&selection=%2Fl%2FP%2FP%2FI"><Data ss:Type="String">Store_Retrieve</Data></Cell>
+
+<Cell ss:StyleID="sFnHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2FP&selection=%2Fl%2FP%2FP%2FP"><Data ss:Type="String">Control</Data></Cell>
+
+<Cell ss:StyleID="sFnHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2FP&selection=%2Fl%2FP%2FP%2F3"><Data ss:Type="String">SystemOperation</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2FX"><Data ss:Type="String">DUT</Data></Cell>
+
+ <Cell ss:Index="5" ss:StyleID="sHeading"><Data ss:Type="String">X</Data></Cell>
+
+ <Cell ss:Index="7" ss:StyleID="sHeading"><Data ss:Type="String">X</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2Fs"><Data ss:Type="String">VUC</Data></Cell>
+
+ <Cell ss:Index="4" ss:StyleID="sHeading"><Data ss:Type="String">X</Data></Cell>
+
+ <Cell ss:Index="5" ss:StyleID="sHeading"><Data ss:Type="String">X</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sHeading"><Data ss:Type="String">X</Data></Cell>
+
+ <Cell ss:Index="7" ss:StyleID="sHeading"><Data ss:Type="String">X</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+ </Table>
+ </Worksheet>
+ <Worksheet ss:Name="GSN">
+<Table>
+<Column ss:Index="2" ss:Width="198"/>
+
+<Column ss:Index="3" ss:Width="84"/>
+
+<Column ss:Index="4" ss:Width="54"/>
+
+<Column ss:Index="5" ss:Width="72"/>
+
+<Column ss:Index="6" ss:Width="72"/>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Components</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">GSN Node</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Tag</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Status</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Result</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2F3"><Data ss:Type="String">LinearRegulator</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fc"><Data ss:Type="String">Mux/DeMux</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2FH"><Data ss:Type="String">Mux/DeMux : Mux/DeMux</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fo"><Data ss:Type="String">Adj_Load Switch</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FN"><Data ss:Type="String">DFF</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fl"><Data ss:Type="String">Load Switch</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FM"><Data ss:Type="String">Adj_LinearRegulator</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FS"><Data ss:Type="String">PowerBus</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2Fs"><Data ss:Type="String">VUC : PowerBus</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FX"><Data ss:Type="String">uController</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2&selection=%2Fl%2FP%2Fh%2F2%2Ff"><Data ss:Type="String">uController : uController</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fh"><Data ss:Type="String">SRAM</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2FX"><Data ss:Type="String">DUT : SRAM</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fb"><Data ss:Type="String">FRAM</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2&selection=%2Fl%2FP%2Fh%2F2%2FI"><Data ss:Type="String">FRAM : FRAM</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2Fy"><Data ss:Type="String">Resistor</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2&selection=%2Fl%2FP%2Fh%2F2%2FK"><Data ss:Type="String">FRAM_Res : Resistor</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fw&selection=%2Fl%2FP%2Fw%2FD"><Data ss:Type="String">Logic Translator</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2Fa"><Data ss:Type="String">Control : Logic Translator</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2FY"><Data ss:Type="String">Address : Logic Translator</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2Fh"><Data ss:Type="String">Data In : Logic Translator</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2Fw"><Data ss:Type="String">Data Out : Logic Translator</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2F2"><Data ss:Type="String">Control</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2Fl"><Data ss:Type="String">Logic Translation</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2FF"><Data ss:Type="String">Power</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+ </Table>
+ </Worksheet>
+ <Worksheet ss:Name="Coverage-Function-Implementor">
+<Table>
+<Column ss:Index="2" ss:Width="126"/>
+
+<Column ss:Index="3" ss:Width="180"/>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Function</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Implementor Component(s)</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="0" ss:StyleID="sFnHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2FP&selection=%2Fl%2FP%2FP%2FO" ><Data ss:Type="String">PowerRegulation</Data></Cell>
+
+<Cell ss:Index="3" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2Fs" ><Data ss:Type="String">VUC : PowerBus</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="0" ss:StyleID="sFnHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2FP&selection=%2Fl%2FP%2FP%2FI" ><Data ss:Type="String">Store_Retrieve</Data></Cell>
+
+<Cell ss:Index="3" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2FX" ><Data ss:Type="String">DUT : SRAM</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sFnHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2FP&selection=%2Fl%2FP%2FP%2FP"><Data ss:Type="String">Control</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sFnHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2FP&selection=%2Fl%2FP%2FP%2Fm"><Data ss:Type="String">DetectMitigate</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+ </Table>
+ </Worksheet>
+ <Worksheet ss:Name="Coverage-Instance-Function">
+<Table>
+<Column ss:Index="2" ss:Width="198"/>
+
+<Column ss:Index="3" ss:Width="126"/>
+
+<Column ss:Index="4" ss:Width="144"/>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Instance</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Function(s)</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Information Source</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2F2"><Data ss:Type="String">Control</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2&selection=%2Fl%2FP%2Fh%2F2%2Ff"><Data ss:Type="String">uController : uController</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2&selection=%2Fl%2FP%2Fh%2F2%2FI"><Data ss:Type="String">FRAM : FRAM</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2&selection=%2Fl%2FP%2Fh%2F2%2FK"><Data ss:Type="String">FRAM_Res : Resistor</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="0" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2FX" ><Data ss:Type="String">DUT : SRAM</Data></Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFnHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2FP&selection=%2Fl%2FP%2FP%2FI" ><Data ss:Type="String">Store_Retrieve</Data></Cell>
+
+ <Cell ss:Index="4" ss:StyleID="Default"><Data ss:Type="String">Instance</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="0" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2Fs" ><Data ss:Type="String">VUC : PowerBus</Data></Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFnHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2FP&selection=%2Fl%2FP%2FP%2FO" ><Data ss:Type="String">PowerRegulation</Data></Cell>
+
+ <Cell ss:Index="4" ss:StyleID="Default"><Data ss:Type="String">Instance</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2Fl"><Data ss:Type="String">Logic Translation</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2Fa"><Data ss:Type="String">Control : Logic Translator</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2FY"><Data ss:Type="String">Address : Logic Translator</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2Fh"><Data ss:Type="String">Data In : Logic Translator</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2Fw"><Data ss:Type="String">Data Out : Logic Translator</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2FH"><Data ss:Type="String">Mux/DeMux : Mux/DeMux</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2FF"><Data ss:Type="String">Power</Data></Cell>
+
+<Cell ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+ </Table>
+ </Worksheet>
+ <Worksheet ss:Name="Coverage-System-GSN">
+<Table>
+<Column ss:Index="2" ss:Width="198"/>
+
+<Column ss:Index="3" ss:Width="126"/>
+
+<Column ss:Index="4" ss:Width="72"/>
+
+<Column ss:Index="5" ss:Width="84"/>
+
+<Column ss:Index="6" ss:Width="84"/>
+
+<Column ss:Index="7" ss:Width="54"/>
+
+<Column ss:Index="8" ss:Width="72"/>
+
+<Column ss:Index="9" ss:Width="72"/>
+
+<Column ss:Index="10" ss:Width="144"/>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Component</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Fault</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Effect</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Response</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">GSN Node</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Tag</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Status</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Result</Data></Cell>
+
+<Cell ss:StyleID="sHeading"><Data ss:Type="String">Information Source</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="0" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2F2" ><Data ss:Type="String">Control</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="9" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2&selection=%2Fl%2FP%2Fh%2F2%2Ff" ><Data ss:Type="String">uController : uController</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2%2Ff&selection=%2Fl%2FP%2Fh%2F2%2Ff%2FI" ><Data ss:Type="String">SEFI</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2%2Ff&selection=%2Fl%2FP%2Fh%2F2%2Ff%2Fi" ><Data ss:Type="String">TID</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2%2Ff&selection=%2Fl%2FP%2Fh%2F2%2Ff%2Fu" ><Data ss:Type="String">SEL</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="6" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2&selection=%2Fl%2FP%2Fh%2F2%2FI" ><Data ss:Type="String">FRAM : FRAM</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2%2FI&selection=%2Fl%2FP%2Fh%2F2%2FI%2F2L" ><Data ss:Type="String">SEL</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2%2FI&selection=%2Fl%2FP%2Fh%2F2%2FI%2FZp" ><Data ss:Type="String">TID</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="0" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2F2&selection=%2Fl%2FP%2Fh%2F2%2FK" ><Data ss:Type="String">FRAM_Res : Resistor</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="15" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2FX" ><Data ss:Type="String">DUT : SRAM</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2FX&selection=%2Fl%2FP%2Fh%2FX%2Fw" ><Data ss:Type="String">TID</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2FX&selection=%2Fl%2FP%2Fh%2FX%2FF" ><Data ss:Type="String">SEL</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2FX&selection=%2Fl%2FP%2Fh%2FX%2FK" ><Data ss:Type="String">ThermalDamage</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2FX&selection=%2Fl%2FP%2Fh%2FX%2FL" ><Data ss:Type="String">Open</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2FX&selection=%2Fl%2FP%2Fh%2FX%2Ft" ><Data ss:Type="String">Short</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="6" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2Fs" ><Data ss:Type="String">VUC : PowerBus</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fs&selection=%2Fl%2FP%2Fh%2Fs%2FUK" ><Data ss:Type="String">Software_Fault</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fs&selection=%2Fl%2FP%2Fh%2Fs%2FRB" ><Data ss:Type="String">Radiation_Fault</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="0" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2Fl" ><Data ss:Type="String">Logic Translation</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="6" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2Fa" ><Data ss:Type="String">Control : Logic Translator</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl%2Fa&selection=%2Fl%2FP%2Fh%2Fl%2Fa%2FP" ><Data ss:Type="String">TID</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl%2Fa&selection=%2Fl%2FP%2Fh%2Fl%2Fa%2Fc" ><Data ss:Type="String">SEL</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="6" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2FY" ><Data ss:Type="String">Address : Logic Translator</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl%2FY&selection=%2Fl%2FP%2Fh%2Fl%2FY%2FP" ><Data ss:Type="String">TID</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl%2FY&selection=%2Fl%2FP%2Fh%2Fl%2FY%2Fc" ><Data ss:Type="String">SEL</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="6" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2Fh" ><Data ss:Type="String">Data In : Logic Translator</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl%2Fh&selection=%2Fl%2FP%2Fh%2Fl%2Fh%2FP" ><Data ss:Type="String">TID</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl%2Fh&selection=%2Fl%2FP%2Fh%2Fl%2Fh%2Fc" ><Data ss:Type="String">SEL</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="6" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2Fw" ><Data ss:Type="String">Data Out : Logic Translator</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl%2Fw&selection=%2Fl%2FP%2Fh%2Fl%2Fw%2FP" ><Data ss:Type="String">TID</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl%2Fw&selection=%2Fl%2FP%2Fh%2Fl%2Fw%2Fc" ><Data ss:Type="String">SEL</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="6" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl&selection=%2Fl%2FP%2Fh%2Fl%2FH" ><Data ss:Type="String">Mux/DeMux : Mux/DeMux</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl%2FH&selection=%2Fl%2FP%2Fh%2Fl%2FH%2FA" ><Data ss:Type="String">TID</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+</Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:Index="3" ss:StyleID="sFMHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh%2Fl%2FH&selection=%2Fl%2FP%2Fh%2Fl%2FH%2FO" ><Data ss:Type="String">SEL</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+
+<Row> </Row>
+
+<Row>
+
+<Cell> </Cell>
+
+<Cell ss:MergeDown="0" ss:StyleID="sCompHLink" ss:HRef="https://editor.modelbasedassurance.org/?project=raausti1%2BNASA_Tutorial&node=%2Fl%2FP%2Fh&selection=%2Fl%2FP%2Fh%2FF" ><Data ss:Type="String">Power</Data></Cell>
+
+ <Cell ss:Index="6" ss:StyleID="sQuestion"><Data ss:Type="String">?</Data></Cell>
+
+</Row>
+
+<Row> </Row>
+ </Table>
+ </Worksheet>
+
+ </Workbook>
+ 

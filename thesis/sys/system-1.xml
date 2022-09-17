@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sys name='System' gate='AND'>
+    <dev name='Q1' gate='OR'>
+        <eff name='Q1-SET' recover='1'/>
+        <eff name='Q1-SEB' recover='2'/>
+        <eff name='Q1-SEGR'/>
+        <eff name='Q1-TID'/>
+    </dev>
+    <dev name='Q1' gate='OR'>
+        <eff name='Q1-SET' recover='1'/>
+        <eff name='Q1-SEB' recover='2'/>
+        <eff name='Q1-SEGR'/>
+        <eff name='Q1-TID'/>
+    </dev>
+</sys>

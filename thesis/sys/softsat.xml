@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name='SoftSat' gate='OR'>
+    <node name='COMM' gate='OR'>
+        <node name='RF' gate='OR'>
+            <event name='SEFI' rate='RF_SEFI' prob='0.01'/>
+            <event name='SEL' rate='RF_SEL' prob='0.01'/>
+            <event name='TID' rate='RF_TID' prob='0.01'/>
+        </node>
+        <node name='ANT' gate='OR'>
+            <event name='TID' rate='ANT_TID' prob='0.01'/>
+        </node>
+    </node>
+    <node name='NAV' gate='OR'>
+        <node name='GPS' gate='OR'>
+            <event name='SEU' rate='GPS_SEU' prob='0.01'/>
+            <event name='SEFI' rate='GPS_SEFI' prob='0.01'/>
+            <event name='SEL' rate='GPS_SEL' prob='0.01'/>
+            <event name='TID' rate='GPS_TID' prob='0.01'/>
+        </node>
+        <node name='GYRO' gate='OR'>
+            <event name='TID' rate='GYRO_TID' prob='0.01'/>
+        </node>
+        <node name='PROP' gate='OR'>
+            <event name='SEFI' rate='PROP_SEFI' prob='0.01'/>
+            <event name='SEL' rate='PROP_SEL' prob='0.01'/>
+            <event name='SEGR' rate='PROP_SEGR' prob='0.01'/>
+            <event name='TID' rate='GPS_TID' prob='0.01'/>
+        </node>
+    </node>
+    <node name='POWER' gate='OR'>
+        <node name='SUPPLY' gate='AND'>
+            <node name='REG1' gate='OR'>
+                <event name='SET' rate='REG_SET' prob='0.01'/>
+                <event name='SEGR' rate='REG_SEGR' prob='0.01'/>
+                <event name='TID' rate='REG_TID' prob='0.01'/>
+            </node>
+            <node name='REG2' gate='OR'>
+                <event name='SET' rate='REG_SET' prob='0.01'/>
+                <event name='SEGR' rate='REG_SEGR' prob='0.01'/>
+                <event name='TID' rate='REG_TID' prob='0.01'/>
+            </node>
+        </node>
+        <node name='PV' gate='OR'>
+            <event name='TID' rate='PV_TID' prob='0.01'/>
+        </node>
+    </node>
+</node>

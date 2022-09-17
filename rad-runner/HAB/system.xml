@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sys>
+  <box name='HAB' fx='OR'>
+    <part name='Radio' risk='0.25'/>
+    <box name='Sensors' fx='OR'>
+      <part name='Thermometer' risk='0.4'/>
+      <part name='Barometer' risk='0.5'/>
+    </box>
+    <part name='Power' risk='0.75'/>
+  </box>
+</sys>

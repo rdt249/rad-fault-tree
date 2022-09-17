@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name='POWER' gate='OR'>
+    <node name='SUPPLY' gate='AND'>
+        <node name='REG1' gate='OR'>
+            <event name='SET' rate='REG_SET'/>
+            <event name='SEGR' rate='REG_SEGR'/>
+            <event name='TID' rate='REG_TID'/>
+        </node>
+        <node name='REG2' gate='OR'>
+            <event name='SET' rate='REG_SET'/>
+            <event name='SEGR' rate='REG_SEGR'/>
+            <event name='TID' rate='REG_TID'/>
+        </node>
+    </node>
+    <node name='PV' gate='OR'>
+        <event name='TID' rate='PV_TID'/>
+    </node>
+</node>

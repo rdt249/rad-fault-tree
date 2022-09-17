@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name='SoftSat' gate='OR'>
+    <event name='COMM' rate='COMM'/>
+    <event name='NAV' rate='NAV'/>
+    <event name='POWER' rate='POWER'/>
+</node>
