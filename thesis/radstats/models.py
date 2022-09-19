@@ -34,7 +34,7 @@ example = {
     }
 }
     
-def get_probs(env,events):
+def events(env,models,flux='integral'):
     tspec,sspec,gspec = [],[],[]
     for col in env.columns:
         if col.startswith('TRP'): tspec.append(col)
@@ -43,44 +43,44 @@ def get_probs(env,events):
     tflux,sflux,gflux,dose = env[tspec].values,env[sspec].values,env[gspec].values,env['TID'].values
     tflux[0] = env[tspec].mean()
     tstep = max(env['Time (s)']) / len(env)
-    for rad in events:
-        for event in events[rad]:
-            events[rad][event]['rate'] = []
-            events[rad][event]['prob'] = []
+    for rad in models:
+        for event in models[rad]:
+            models[rad][event]['rate'] = []
+            models[rad][event]['prob'] = []
     for i in range(len(env)):
         print(i,end='\r')
-        for rad in events:
-            for event in events[rad]:
-                params = [events[rad][event][key] for key in events[rad][event].keys()][:-2]
+        for rad in models:
+            for event in models[rad]:
+                params = [models[rad][event][key] for key in models[rad][event].keys()][:-2]
                 if rad == 'Protons':
                     x = [float(col.split(' ')[1]) for col in tspec] # trapped spectrum
                     model = weibull(x,*params)
-                    dflux = tflux[i] / x
+                    dflux = tflux[i] / x if flux in ['integral','int'] else tflux[i]
                     rate = np.trapz(dflux * model,x)
                     x = [float(col.split(' ')[1]) for col in sspec] # solar spectrum
                     model = weibull(x,*params)
-                    dflux = sflux[i] / x
+                    dflux = sflux[i] / x if flux in ['integral','int'] else sflux[i]
                     rate += np.trapz(dflux * model,x)
                     prob = 1 - np.exp(-rate * tstep)
                 if rad == 'GCR':
                     x = [float(col.split(' ')[1]) for col in gspec] # gcr spectrum
                     model = weibull(x,*params)
-                    dflux = gflux[i] / x
+                    dflux = gflux[i] / x if flux in ['integral','int'] else gflux[i]
                     rate = np.trapz(dflux * model,x)
                     prob = 1 - np.exp(-rate * tstep)
                 if rad == 'Dose':
                     prob = lognormal(dose[i],*params)
                     rate = -np.log(1 - prob) / tstep
                     if rate == -0: rate = 0
-                events[rad][event]['rate'].append(float(rate))
-                events[rad][event]['prob'].append(float(prob))
+                models[rad][event]['rate'].append(float(rate))
+                models[rad][event]['prob'].append(float(prob))
     print(' '*20,end='\r')
     probs = pd.DataFrame(index=env.index)
     names = []
-    for rad in events:
-        for event in events[rad]:
+    for rad in models:
+        for event in models[rad]:
             names.append(rad.lower()[0] + event)
-            probs[names[-1]] = events[rad][event]['prob']
+            probs[names[-1]] = models[rad][event]['prob']
     for name in names:
         effect = name[1:]
         if effect in probs.columns: probs[effect] += probs[name].replace(np.nan,0)

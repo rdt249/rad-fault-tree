@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name='MCU' gate='OR'>
+    <event name='SEFI' probs='MCU_SEFI' prob='0.01' repair='1'/>
+    <event name='SEL' probs='MCU_SEL' prob='0.01' repair='1'/>
+    <event name='TID' probs='MCU_TID' prob='0.01' repair='\infty'/>
+</node>

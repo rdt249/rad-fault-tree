@@ -5,7 +5,7 @@ from PIL import Image
 from radstats import bayes
 
 decimals = 4
-spacing = (2,3.5)
+spacing = (2,4)
 
 class PAND(elements.Element):
     def __init__(self, dot=False, label=False, *d, **kwargs):
@@ -58,40 +58,53 @@ class VOTE(elements.Element):
 
 pos = {}
 
-def get_pos(element,mode):
+def get_pos(system,element,mode):
     global pos
+    if element.tag == 'ref': element = system.xpath(f'..//node[@name="{element.get("name")}"]')[0]
     if element not in pos.keys():
-        x = [get_pos(child,mode=mode)[0] for child in element.xpath('*')]
-        y = [get_pos(child,mode=mode)[1] for child in element.xpath('*')]
+        x = [get_pos(system,child,mode=mode)[0] for child in element]
+        y = [get_pos(system,child,mode=mode)[1] for child in element]
         if mode == 'FT': pos[element] = (sum(x) / len(x), max(y) + spacing[1])
         elif mode == 'BN': pos[element] = (sum(x) / len(x), min(y) - spacing[1])
     return pos[element]
 
-def get_prob(element):
+def get_prob(system,element):
+    if element.tag == 'ref': element = system.xpath(f'..//node[@name="{element.get("name")}"]')[0]
     if element.get('prob','-1') == '-1':
-        p = [float(get_prob(child)) for child in element.xpath('*')]
+        p = [float(get_prob(system,child)) for child in element]
         if element.get('gate') == 'OR': element.set('prob',str(bayes.OR(p)))
         if element.get('gate') == 'AND': element.set('prob',str(bayes.AND(p)))
         if element.get('gate') == 'VOTE': element.set('prob',str(bayes.VOTE(p,float(element.get('k')))))
     return element.get('prob')
 
-def FT(system,file='diagram.png',probs=False,gates=True,times=True):
+def FT(system,root=None,file='diagram.png',probs=False,gates=True,times=True):
+    root = system.getroot() if root is None else system.xpath(f'..//node[@name="{root}"]')[0]
+    nodes = root.xpath('.//node') + [root]
+    events = root.xpath('.//event')
+    refs = root.xpath('.//ref')
+    for ref in refs:
+        if system.xpath(f'..//node[@name="{ref.get("name")}"]')[0] in nodes: continue
+        else: 
+            nodes = system.xpath(f'..//node[@name="{ref.get("name")}"]/..//node') + nodes
+            events = system.xpath(f'..//node[@name="{ref.get("name")}"]/.//event') + events
+    global pos
+    pos = {}
     schemdraw.config(inches_per_unit = 2,fontsize=45)
-    for i,event in enumerate(system.xpath('.//event')):
+    for i,event in enumerate(system.xpath('..//event')):
         pos[event] = (i * spacing[0],-spacing[1] * len(event.xpath('ancestor::node')))
-    get_pos(system.getroot(),mode='FT')
+    get_pos(system,root,mode='FT')
     initial = bayes.decimals
     bayes.decimals = decimals
-    if probs: get_prob(system.getroot())
+    if probs: get_prob(system,root)
     bayes.decimals = initial
     with schemdraw.Drawing(file=file,show=False) as d:
-        for event in system.xpath('..//event'):
+        for event in events:
             name = event.get('name')
             if probs: name += '\n' + event.get('prob')
             if event.get('repair',None) is None or times == False: text = ''
             else: text = f'$t_R={event.get("repair","")}$'
             d += flow.Circle().anchor('N').at(pos[event]).label(name).label(text,loc='bot')
-        for node in system.xpath('..//node'):
+        for node in nodes:
             name = node.get('name')
             if probs: name += '\n' + node.get('prob')
             if node.get('gate',None) == 'OR':
@@ -107,33 +120,45 @@ def FT(system,file='diagram.png',probs=False,gates=True,times=True):
                 if gates: d += (new := VOTE(inputs=1,k=node.get('k')).at(new.S).down().reverse())
                 else: d += elements.Gap().at(new.absanchors['S']).down().label('VOTE'+node.get('k'))
             for sub in node.xpath('*'):
-                if gates: d += flow.Wire('-|').at(new.in1).to(pos[sub])
-                else: d += flow.Wire('N',arrow='<-').at(new.absanchors['S']).to(pos[sub])
+                if sub.tag == 'ref': sub = system.xpath(f'..//node[@name="{sub.get("name")}"]')[0]
+                if gates: d += flow.Wire('-').at(new.in1).to(pos[sub])
+                else: d += flow.Wire('-',arrow='<-').at(new.absanchors['S']).to(pos[sub])
     image = Image.open(file)
     image.crop(image.getbbox())
     image.save(file)
     return image
 
-def BN(system,file='diagram.png',probs=True,gates=False,times=True):
+def BN(system,root=None,file='diagram.png',probs=True,gates=False,times=True):
+    root = system.getroot() if root is None else system.xpath(f'..//node[@name="{root}"]')[0]
+    nodes = root.xpath('.//node') + [root]
+    events = root.xpath('.//event')
+    refs = root.xpath('.//ref')
+    for ref in refs:
+        if system.xpath(f'..//node[@name="{ref.get("name")}"]')[0] in nodes: continue
+        else: 
+            nodes = system.xpath(f'..//node[@name="{ref.get("name")}"]/..//node') + nodes
+            events = system.xpath(f'..//node[@name="{ref.get("name")}"]/.//event') + events
+    global pos
+    pos = {}
     schemdraw.config(inches_per_unit = 2,fontsize=45)
     levels = 0
-    for i,event in enumerate(system.xpath('.//event')):
+    for i,event in enumerate(events):
         if len(event.xpath('ancestor::node')) > levels: levels = len(event.xpath('ancestor::node'))
-    for i,event in enumerate(system.xpath('.//event')):
+    for i,event in enumerate(events):
         pos[event] = (i * spacing[0],-spacing[1] * (levels - len(event.xpath('ancestor::node'))))
-    get_pos(system.getroot(),mode='BN')
+    get_pos(system,root,mode='BN')
     initial = bayes.decimals
     bayes.decimals = decimals
-    if probs: get_prob(system.getroot())
+    if probs: get_prob(system,root)
     bayes.decimals = initial
     with schemdraw.Drawing(file=file,show=False) as d:
-        for event in system.xpath('..//event'):
+        for event in events:
             name = event.get('name')
             if probs: name += '\n' + event.get('prob')
             if event.get('repair',None) is None or times == False: text = ''
             else: text = f'$t_R={event.get("repair","")}$'
             d += flow.State().anchor('S').at(pos[event]).label(name).label(text,loc='top')
-        for node in system.xpath('..//node'):
+        for node in nodes:
             name = node.get('name')
             if probs: name += '\n' + node.get('prob')
             if node.get('gate',None) == 'OR':
@@ -149,8 +174,9 @@ def BN(system,file='diagram.png',probs=True,gates=False,times=True):
                 if gates: d += (new := VOTE(inputs=1,k=node.get('k')).at(new.N).up().reverse())
                 else: d += elements.Gap().at(new.absanchors['N']).up().label('VOTE'+node.get('k'))
             for sub in node.xpath('*'):
-                if gates: d += flow.Wire('|-').at(pos[sub]).to(new.in1)
-                else: d += flow.Wire('N',arrow='->').at(pos[sub]).to(new.absanchors['N'])
+                if sub.tag == 'ref': sub = system.xpath(f'..//node[@name="{sub.get("name")}"]')[0]
+                if gates: d += flow.Wire('-').at(pos[sub]).to(new.in1)
+                else: d += flow.Wire('-',arrow='->').at(pos[sub]).to(new.absanchors['N'])
     image = Image.open(file)
     image.crop(image.getbbox())
     image.save(file)

@@ -41,7 +41,7 @@ def read_spenvis(file):
 
 def get(spenvis,segment,shielding='0.370 mm'):
     orbit = read_spenvis(spenvis + '/spenvis_sao.txt')[segment]
-    orbit['DF']['Latitude (deg)'] = np.around(orbit['DF']['Latitude (deg)'],2)
+    orbit['DF']['Latitude (deg)'] = np.around(orbit['DF']['Latitude (deg)'],2).replace(-0,0)
     orbit['DF']['SegmentNum'] = segment
     orbit['DF']['SegmentName'] = orbit['ORB_HDR']
     orbit['DF']['Time (hrs)'] = (orbit['DF']['MJD (days)'] - orbit['DF']['MJD (days)'].min()) * 24
@@ -120,3 +120,47 @@ def stitch(spenvis,segments,shielding='0.370 mm'):
     mission[['TTID','STID','TID']] = mission[['dTTID','dSTID','dTID']].cumsum()
     mission[['TDDD','SDDD','DDD']] = mission[['dTDDD','dSDDD','dDDD']].cumsum()
     return mission
+
+def get_atten():
+    niel = read_spenvis('trajectory/MISSION/spenvis_nio.txt')
+    patten = pd.DataFrame(index=niel[-4]['DF']['Energy (MeV)'])
+    for col in niel[-4]['DF'].columns[1:]:
+        print(col)
+        patten[col] = niel[-4]['DF'][col].values / niel[-4]['DF']['Unshielded'].values
+    print(patten)
+    patten.to_csv('radstats/proton_atten.csv')
+
+def event(event_file,shielding='0.370 mm'):
+    file = open(event_file).read().split('\n')
+    energies = []
+    check_next = False
+    skiprows = 0
+    for i,line in enumerate(file):
+        if check_next: energies.append(float(line.split('channel')[1].split('-')[0]))
+        check_next = False
+        if line.startswith('float p'): check_next = True
+        if line.startswith('data:'): skiprows = i + 1
+
+    dflux = pd.read_csv(event_file,skiprows=skiprows,index_col='time_tag')
+    dflux.index = pd.to_datetime(dflux.index)
+    dflux = dflux['1989-10-19 12:00:00' : '1989-11-01']
+    atten = pd.read_csv('radstats/proton_atten.csv',index_col='Energy (MeV)')
+    atten = atten.loc[[0.63,4.5,9,16,40,90,110]]
+    dflux = dflux.drop(columns='e2_flux_i') * atten[shielding].values
+    dflux.columns = [f'SEP {x} MeV' for x in energies]
+    iflux = pd.DataFrame(index=dflux.index)
+    for i,col in enumerate(dflux.columns): iflux[col]=dflux[dflux.columns[i:len(dflux.columns)+1]].sum(axis=1) * energies[i]
+    pstar = pd.read_csv('radstats/pstar.txt',sep=' ',skiprows=8,header=None)
+    pstar.columns = ['Energy','LET',2]
+    pstar = pstar.pivot(columns='Energy',values='LET').fillna(method='bfill').iloc[0]
+    dose = pd.DataFrame({'Rate (krad/s)':iflux[iflux > 0].mul(pstar[energies].values).sum(axis=1) * 1.6e-8 / 1000}) # krad
+    dose['dTID'] = iflux.index
+    dose['dTID'] = dose['Rate (krad/s)'] * dose['dTID'].diff().dt.total_seconds().bfill()
+    dose['TID'] = dose['dTID'].cumsum()
+    env = pd.concat([dflux,dose],axis=1)
+    env['Time (s)'] = env.index
+    env['Time (s)'] = (env['Time (s)'] - env['Time (s)'].iloc[0]).dt.total_seconds()
+    env['Time (hrs)'] = env['Time (s)'] / 3600
+    env['SegmentNum'] = 0
+    return env
+

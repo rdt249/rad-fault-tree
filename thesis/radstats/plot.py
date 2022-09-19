@@ -8,7 +8,9 @@ pd.options.plotting.backend = 'plotly'
 
 from radstats import models
 
-dir = ''
+dir = None
+scale = 3
+size = (800,400)
 
 layout = {
     'margin':{'l':80,'r':80,'t':50,'b':50},
@@ -28,7 +30,7 @@ def rows(figs,titles=None,sharex=True):
             fig.add_trace(trace,row=i+1,col=1)
         fig.update_yaxes(type=figs[i].layout.yaxis.type,exponentformat='E',row=i+1,col=1)
         fig.update_xaxes(type=figs[i].layout.xaxis.type,exponentformat='E',row=i+1,col=1)
-    fig.update_layout(layout)
+    fig.update_layout(layout,width=size[0],height=len(figs) * size[1] / 2)
     fig.update_annotations(font={'size':12})
     return fig
 
@@ -54,7 +56,7 @@ def timeline(df):
         df.plot('Time (hrs)','TID'),
         df.plot('Time (hrs)','DDD')
     ],titles=titles)
-    fig.write_image(dir + '/timeline.png',scale=3)
+    if dir is not None: fig.write_image(dir + '/timeline.png',scale=scale)
     return fig
 
 def spectra(df):
@@ -75,7 +77,7 @@ def spectra(df):
         df.plot(x=[float(x.split(' ')[1]) for x in sspec],y=df[sspec].mean(),log_y=True,log_x=True),
         df.plot(x=[float(x.split(' ')[1]) for x in gspec],y=df[gspec].mean(),log_y=True,log_x=True)
     ],titles=titles,sharex=False)
-    fig.write_image(dir + '/spectra.png',scale=3)
+    if dir is not None: fig.write_image(dir + '/spectra.png',scale=scale)
     return fig
 
 def cross_sections(events):
@@ -108,24 +110,31 @@ def cross_sections(events):
         fig.update_yaxes(type=yscale,exponentformat='E',dtick=1)
         figs.append(fig)
     fig = rows(figs,titles=titles,sharex=False)
-    fig.update_layout(layout)
-    fig.write_image(dir + '/cross_sections.png',scale=3)
+    if dir is not None: fig.write_image(dir + '/cross_sections.png',scale=scale)
     return fig
 
-def probs(elements,labels={'value':'Probability','variable':'Element'}):
-    fig = px.line(elements,log_y=True,labels=labels)
+def probs(elements,log=True,labels={'value':'Probability','variable':'Element'}):
+    fig = px.line(elements,log_y=log,labels=labels)
     fig.update_yaxes(exponentformat='E',dtick=1)
-    fig.update_layout(layout,showlegend=True)
-    fig.write_image(dir + '/probability.png',scale=3)
+    fig.update_layout(layout,showlegend=True,width=size[0],height=size[1])
+    if dir is not None: fig.write_image(dir + '/probability.png',scale=scale)
     return fig
 
-def heatmap(data,log=False,labels={'color':'Probability'}):
+def heatmap(df,log=False,labels={'color':'Probability'}):
     if log:
-        data = np.log(data.astype(np.float64)).replace(-np.inf,np.nan)
-        data = data.fillna(data.min().min())
-    fig = px.imshow(data.T,color_continuous_scale='viridis',labels=labels)
+        df = np.log(df.astype(np.float64)).replace(-np.inf,np.nan)
+        df = df.fillna(df.min().min())
+    fig = px.imshow(df.T,color_continuous_scale='viridis',labels=labels)
     if log:
-        fig.layout.coloraxis.colorbar.tickvals = np.linspace(data.min().min(),data.max().max(),5)
+        fig.layout.coloraxis.colorbar.tickvals = np.linspace(df.min().min(),df.max().max(),5)
         fig.layout.coloraxis.colorbar.ticktext = [f'{np.exp(x):.2e}' for x in fig.layout.coloraxis.colorbar.tickvals]
-    fig.update_layout(layout)
+    fig.update_layout(layout,width=size[0],height=size[1])
+    if dir is not None: fig.write_image(dir + '/heatmap.png',scale=scale)
+    return fig
+
+def bar(series,log=False,labels={'value':'Probability','index':'Element'}):
+    fig = px.bar(series.astype(float),log_y=log,labels=labels)
+    fig.update_layout(layout,width=size[0],height=size[1])
+    fig.update_yaxes(exponentformat='E')
+    if dir is not None: fig.write_image(dir + '/bar.png',scale=scale)
     return fig

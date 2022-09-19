@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name='Payload' gate='OR'>
+    <node name='SRAM' gate='OR'>
+        <event name='SEFI' probs='SRAM_SEFI' prob='0.01' repair='1'/>
+        <event name='SEL' probs='SRAM_SEL' prob='0.01' repair='1'/>
+        <event name='TID' probs='SRAM_TID' prob='0.01' repair='\infty'/>
+        <node name='LREG' gate='OR'>
+            <event name='SEGR' probs='LREG_SEGR' prob='0.01' repair='\infty'/>
+            <event name='TID' probs='LREG_TID' prob='0.10' repair='\infty'/>
+        </node>
+    </node>
+    <node name='MCU' gate='OR'>
+        <event name='SEFI' probs='MCU_SEFI' prob='0.01' repair='1'/>
+        <event name='SEL' probs='MCU_SEL' prob='0.01' repair='1'/>
+        <event name='TID' probs='MCU_TID' prob='0.01' repair='\infty'/>
+        <ref name='LREG'/>
+    </node>
+</node>

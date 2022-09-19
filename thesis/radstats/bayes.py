@@ -1,3 +1,4 @@
+from turtle import pos
 import numpy as np
 import pandas as pd
 import itertools
@@ -27,22 +28,27 @@ def VOTE(probs,k=1):
     Pcond = [sum(i) >= k for i in itertools.product([True,False],repeat=len(probs))]
     return np.around(np.dot(Pcond,Pmarg),decimals)
 
-def propagate(element):
+def propagate(system,element):
+    if element.tag == 'ref': element = system.xpath(f'.//node[@name="{element.get("name")}"]')[0]
     if element.get('prob','-1') == '-1':
-        p = [float(propagate(child)) for child in element.xpath('*')]
+        p = [float(propagate(system,child)) for child in element.xpath('*')]
         if element.get('gate') == 'OR': element.set('prob',str(OR(p)))
         if element.get('gate') == 'AND': element.set('prob',str(AND(p)))
         if element.get('gate') == 'VOTE': element.set('prob',str(VOTE(p,float(element.get('k')))))
     return element.get('prob')
 
-def faults(system,probs):
-    nodes = system.xpath('..//node')
-    nodes = nodes[1:] + [nodes[0]]
-    events = system.xpath('..//event')
-    result = pd.DataFrame(
-        columns=[event.get('probs') for event in events] + [node.get('name') for node in nodes],
-        index=probs.index
-    )
+def faults(system,probs,root=None):
+    root = system.getroot() if root is None else system.xpath(f'..//node[@name="{root}"]')[0]
+    nodes = root.xpath('.//node') + [root]
+    events = root.xpath('.//event')
+    refs = root.xpath('.//ref')
+    for ref in refs:
+        if system.xpath(f'..//node[@name="{ref.get("name")}"]')[0] in nodes: continue
+        else: 
+            nodes = system.xpath(f'..//node[@name="{ref.get("name")}"]/..//node') + nodes
+            events = system.xpath(f'..//node[@name="{ref.get("name")}"]/.//event') + events
+    result = pd.DataFrame(index=probs.index,
+        columns=[event.get('probs') for event in events] + [node.get('name') for node in nodes])
     for i,t in enumerate(probs.index):
         print(i,end='\r')
         for event in events:
@@ -57,31 +63,45 @@ def faults(system,probs):
             result.loc[t][event.get('probs')] = prob
             event.set('prob',str(prob))
         for node in nodes: node.set('prob','-1')
-        propagate(system.getroot())
+        propagate(system,root)
         for node in nodes: result[node.get('name')][t] = float(node.get('prob',np.nan))
     print(' '*20,end='\r')
-    return result
+    return result.astype(float)
 
-def importance(system,faults):
-    nodes = system.xpath('..//node')
-    nodes = nodes[1:] + [nodes[0]]
-    events = system.xpath('..//event')
-    marginal = pd.DataFrame(index=faults.index,
-        columns=[event.get('probs') for event in events] + [node.get('name') for node in nodes])
+def importance(system,faults,root=None):
+    root = system.getroot() if root is None else system.xpath(f'..//node[@name="{root}"]')[0]
+    nodes = root.xpath('.//node') + [root]
+    events = root.xpath('.//event')
+    refs = root.xpath('.//ref')
+    for ref in refs:
+        if system.xpath(f'..//node[@name="{ref.get("name")}"]')[0] in nodes: continue
+        else: 
+            nodes = system.xpath(f'..//node[@name="{ref.get("name")}"]/..//node') + nodes
+            events = system.xpath(f'..//node[@name="{ref.get("name")}"]/.//event') + events
+    marginal = pd.DataFrame(index=faults.index,columns=faults.columns)
+    critical = pd.DataFrame(index=faults.index,columns=faults.columns)
+    diagnostic = pd.DataFrame(index=faults.index,columns=faults.columns)
+    raw = pd.DataFrame(index=faults.index,columns=faults.columns)
+    rrw = pd.DataFrame(index=faults.index,columns=faults.columns)
     for i,t in enumerate(faults.index):
         print(i,end='\r')
         for event in events: event.set('prob',str(faults.loc[t][event.get('probs')]))
         for element in events + nodes:
-            initial = element.get('prob')
-            for node in nodes: node.set('prob','-1')
-            element.set('prob','1')
-            prob_true = propagate(system.getroot())
-            for node in nodes: node.set('prob','-1')
-            element.set('prob','0')
-            prob_false = propagate(system.getroot())
             if element.tag == 'node': col = element.get('name')
             elif element.tag == 'event': col = element.get('probs')
-            marginal.loc[t][col] = float(prob_true) - float(prob_false)
-            element.set('prob',initial)
+            element_prob = faults.loc[t][col]
+            root_prob = faults.loc[t][root.get('name')]
+            for node in nodes: node.set('prob','-1')
+            element.set('prob','1')
+            prob_true = float(propagate(system,root))
+            for node in nodes: node.set('prob','-1')
+            element.set('prob','0')
+            prob_false = float(propagate(system,root))
+            marginal.loc[t][col] = prob_true - prob_false
+            critical.loc[t][col] = marginal.loc[t][col] * element_prob / root_prob if root_prob > 0 else 1
+            diagnostic.loc[t][col] = element_prob * prob_true / root_prob if root_prob > 0 else 1
+            raw.loc[t][col] = prob_true / root_prob if root_prob > 0 else 1
+            rrw.loc[t][col] = root_prob / (prob_false if prob_false > 0 else 1e-9)
+            element.set('prob',str(element_prob))
     print(' '*20,end='\r')
-    return marginal
+    return {'marginal':marginal,'critical':critical,'diagnostic':diagnostic,'raw':raw,'rrw':rrw}
