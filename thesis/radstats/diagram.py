@@ -1,11 +1,13 @@
 import schemdraw
 from schemdraw import flow,logic,elements,segments
 from PIL import Image
+import pandas as pd
+import numpy as np
 
 from radstats import bayes
 
 decimals = 4
-spacing = (2,4)
+spacing = (3,3.5)
 
 class PAND(elements.Element):
     def __init__(self, dot=False, label=False, *d, **kwargs):
@@ -75,9 +77,10 @@ def get_prob(system,element):
         if element.get('gate') == 'OR': element.set('prob',str(bayes.OR(p)))
         if element.get('gate') == 'AND': element.set('prob',str(bayes.AND(p)))
         if element.get('gate') == 'VOTE': element.set('prob',str(bayes.VOTE(p,float(element.get('k')))))
+    # print(element.get('name'),element.get('prob'))
     return element.get('prob')
 
-def FT(system,root=None,file='diagram.png',probs=False,gates=True,times=True):
+def newFT(system,root=None,file='diagram.png',probs=None,frame=-1,show=False,scale=2):
     root = system.getroot() if root is None else system.xpath(f'..//node[@name="{root}"]')[0]
     nodes = root.xpath('.//node') + [root]
     events = root.xpath('.//event')
@@ -89,39 +92,103 @@ def FT(system,root=None,file='diagram.png',probs=False,gates=True,times=True):
             events = system.xpath(f'..//node[@name="{ref.get("name")}"]/.//event') + events
     global pos
     pos = {}
-    schemdraw.config(inches_per_unit = 2,fontsize=45)
+    schemdraw.config(inches_per_unit=scale,fontsize=15*scale,lw=scale)
     for i,event in enumerate(system.xpath('..//event')):
         pos[event] = (i * spacing[0],-spacing[1] * len(event.xpath('ancestor::node')))
     get_pos(system,root,mode='FT')
     initial = bayes.decimals
     bayes.decimals = decimals
+    if probs is not None:
+        for element in nodes + events: element.set('prob','-1')
+        for event in events: event.set('prob',str(np.around(probs[event.get('name')].iloc[frame],decimals)))
+        get_prob(system,root)
+    bayes.decimals = initial
+    with schemdraw.Drawing(file=file,show=show) as d:
+        for event in events:
+            fill = (1,1,1,0)
+            label = event.get('name')
+            if probs is not None:
+                label += '\np=' + event.get('prob')
+                p = float(event.get('prob'))
+                fill = (1,1-p/2,1-p/2,p/2)
+            d += flow.Circle(fill=fill).anchor('N').at(pos[event]).label(label)
+        for node in nodes:
+            fill = (1,1,1,0)
+            label = node.get('name')
+            if probs is not None:
+                label += '\np=' + node.get('prob')
+                p = float(node.get('prob'))
+                fill = (1,1-p/2,1-p/2,p/2)
+            if node.get('gate',None) == 'OR':
+                d += (new := flow.Box(h=1,fill=fill).anchor('N').at(pos[node]).label(label))
+                d += (new := logic.Or(inputs=1,fill=fill).at(new.S).down().reverse())
+            if node.get('gate',None) == 'AND':
+                d += (new := flow.Box(h=1,fill=fill).anchor('N').at(pos[node]).label(label))
+                d += (new := logic.And(inputs=1,fill=fill).at(new.S).down().reverse())
+            if node.get('gate',None) == 'VOTE':
+                d += (new := flow.Box(h=1,fill=fill).anchor('N').at(pos[node]).label(label))
+                d += (new := VOTE(inputs=1,k=node.get('k'),fill=fill).at(new.S).down().reverse())
+            for sub in node.xpath('*'):
+                if sub.tag == 'ref': sub = system.xpath(f'..//node[@name="{sub.get("name")}"]')[0]
+                d += flow.Wire('-|').at(new.in1).to(pos[sub])
+    image = Image.open(file)
+    image.crop(image.getbbox())
+    return image
+
+def FT(system,root=None,file='diagram.png',probs=False,gates=True,times=True,info=False):
+    root = system.getroot() if root is None else system.xpath(f'..//node[@name="{root}"]')[0]
+    nodes = root.xpath('.//node') + [root]
+    events = root.xpath('.//event')
+    refs = root.xpath('.//ref')
+    for ref in refs:
+        if system.xpath(f'..//node[@name="{ref.get("name")}"]')[0] in nodes: continue
+        else: 
+            nodes = system.xpath(f'..//node[@name="{ref.get("name")}"]/..//node') + nodes
+            events = system.xpath(f'..//node[@name="{ref.get("name")}"]/.//event') + events
+    global pos
+    pos = {}
+    if info: schemdraw.config(inches_per_unit = 2,fontsize=30)
+    else: schemdraw.config(inches_per_unit = 2,fontsize=30)
+    for i,event in enumerate(system.xpath('..//event')):
+        pos[event] = (i * spacing[0],-spacing[1] * len(event.xpath('ancestor::node')))
+    get_pos(system,root,mode='FT')
+    initial = bayes.decimals
+    bayes.decimals = decimals
+    if type(probs) is pd.DataFrame:
+        for event in events: event.set('prob',str(np.around(probs[event.get('name')].iloc[-1],decimals)))
+        probs = True
     if probs: get_prob(system,root)
     bayes.decimals = initial
     with schemdraw.Drawing(file=file,show=False) as d:
         for event in events:
-            name = event.get('name')
-            if probs: name += '\n' + event.get('prob')
+            label = event.get('name')
+            if info:
+                if event.get('model',None) is not None: label += '\n' + event.get('model')
+                if event.get('params',None) is not None: label += '\n' + event.get('params')
+            if probs: label += '\np=' + event.get('prob')
             if event.get('repair',None) is None or times == False: text = ''
             else: text = f'$t_R={event.get("repair","")}$'
-            d += flow.Circle().anchor('N').at(pos[event]).label(name).label(text,loc='bot')
+            d += flow.Circle().anchor('N').at(pos[event]).label(label).label(text,loc='bot')
         for node in nodes:
-            name = node.get('name')
-            if probs: name += '\n' + node.get('prob')
+            label = node.get('name')
+            if info:
+                if node.get('pn',None) is not None: label += '\n' + node.get('pn')
+            if probs: label += '\np=' + node.get('prob')
             if node.get('gate',None) == 'OR':
-                d += (new := flow.Box(h=1).anchor('N').at(pos[node]).label(name))
+                d += (new := flow.Box(h=1).anchor('N').at(pos[node]).label(label))
                 if gates: d += (new := logic.Or(inputs=1).at(new.S).down().reverse())
                 else: d += elements.Gap().at(new.absanchors['S']).down().label('OR')
             if node.get('gate',None) == 'AND':
-                d += (new := flow.Box(h=1).anchor('N').at(pos[node]).label(name))
+                d += (new := flow.Box(h=1).anchor('N').at(pos[node]).label(label))
                 if gates: d += (new := logic.And(inputs=1).at(new.S).down().reverse())
                 else: d += elements.Gap().at(new.absanchors['S']).down().label('AND')
             if node.get('gate',None) == 'VOTE':
-                d += (new := flow.Box(h=1).anchor('N').at(pos[node]).label(name))
+                d += (new := flow.Box(h=1).anchor('N').at(pos[node]).label(label))
                 if gates: d += (new := VOTE(inputs=1,k=node.get('k')).at(new.S).down().reverse())
                 else: d += elements.Gap().at(new.absanchors['S']).down().label('VOTE'+node.get('k'))
             for sub in node.xpath('*'):
                 if sub.tag == 'ref': sub = system.xpath(f'..//node[@name="{sub.get("name")}"]')[0]
-                if gates: d += flow.Wire('-').at(new.in1).to(pos[sub])
+                if gates: d += flow.Wire('-|').at(new.in1).to(pos[sub])
                 else: d += flow.Wire('-',arrow='<-').at(new.absanchors['S']).to(pos[sub])
     image = Image.open(file)
     image.crop(image.getbbox())
@@ -181,3 +248,6 @@ def BN(system,root=None,file='diagram.png',probs=True,gates=False,times=True):
     image.crop(image.getbbox())
     image.save(file)
     return image
+
+def events(parts):
+    print(parts)

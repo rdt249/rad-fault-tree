@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name='Payload' gate='OR'>
+    <node name='Power' gate='AND'>
+        <node name='LREG1' gate='OR'>
+            <event name='LREG_SEGR'/>
+            <event name='LREG_TID'/>
+        </node>
+        <node name='LREG2' gate='OR'>
+            <event name='LREG_SEGR'/>
+            <event name='LREG_TID'/>
+        </node>
+    </node>
+    <node name='MCU' gate='OR'>
+        <node name='Mitigation' gate='AND'>
+            <node name='Frozen' gate='OR'>
+                <event name='MCU_SEL'/>
+                <event name='MCU_SEFI'/>
+            </node>
+            <node name='WDOG' gate='OR'>
+                <event name='WDOG_TID'/>
+            </node>
+        </node>
+        <event name='MCU_TID'/>
+    </node>
+    <node name='SRAM' gate='OR'>
+        <node name='Mitigation' gate='AND'>
+            <ref name='MCU'/>
+            <event name='SRAM_SEL'/>
+        </node>
+        <event name='SRAM_TID'/>
+    </node>
+</node>

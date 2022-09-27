@@ -1,0 +1,109 @@
+ 36 gto.HUP                                                                21010
+ %Created by CREME96:HI_UPSET_DRIVER Version  210 on  20220922 at 172201.1
+ %Input Integral LET Spectrum File: gto.let                                 
+ %Created by CREME96:LETSPEC_DRIVER Version  210 on  20220922 at 171600.8       
+ %ZMIN =  1 ZMAX = 92 LETMIN = 1.00E+00 LETMAX = 1.10E+05 MeV-cm2/g LBINS = 1002
+ %EMINCUT = 1.00E-01 MeV/nuc                                                    
+ %TARGET MATERIAL = SILICON                                                     
+ %Input File to LETSPEC_DRIVER: gto.tfx                                         
+ %Created by CREME96:TRANSPORT_DRIVER Version  210 on  20220922 at 171516.4     
+ %ZMIN =  1 ZMAX = 92  EMIN = 1.0000E-01 EMAX = 1.0000E+05 MeV/nuc  MBINS = 1002
+ %Thickness =    25.0000 mils      ALUMINUM                                     
+ %Input File to TRANSPORT_DRIVER: gto.flx                                       
+ %Created by CREME96:FLUX_DRIVER Version  210 on  20220922 at 171421.0          
+ %ZMIN =  1 ZMAX = 92                                                           
+ %IMODE  =   0 SOLAR-QUIET MODE: YEAR =  1977.0000                              
+ %ITRANS =   2 INSIDE MAGNETOSPHERE/TRAPPED PROTONS INCLUDED                    
+ %INPUT GEOMAGNETIC TRANSMISSION FILE: gto.gtf                                  
+ %Created by CREME96:GTRANS_DRIVER Version  210 on  20220922 at 171347.2        
+ %Incl =   0.000 deg  Apo = 0.3579E+05 Peri = 0.1000E+04 km   0.00   0.00   0.00
+ %ISTORM = 0 IPRECALC = 0  Grid Epoch = 1980.0   L Bin: 0.0000E+00 0.1000E+07   
+ %Relative dwell time = 0.1000E+01                                              
+ %INPUT TRAPPED PROTON FILE:            gto_ave.trp                             
+ %Created by CREME96:TRAPPED_DRIVER Version  210 on  20220922 at 171327.3       
+ %Incl =   0.000 deg  Apo = 0.3579E+05 Peri = 0.1000E+04 km   0.00   0.00   0.00
+ %AP8MIN IMOD = 0 IPRECALC = 0                                                  
+ %Relative dwell time = 0.1000E+01 L Bin: 0.0000E+00 0.1000E+07                 
+ %No. orbits =     100  No. steps/orbit =    200                                
+ %Orbital period =    10.79 hours                                               
+ %Sample energies and integral fluxes                                           
+ %   MeV       protons/m**2-sr-s                                                
+ % 1.0000E+00  2.7701E+09                                                       
+ % 3.0000E+00  2.0012E+08                                                       
+ % 6.0000E+00  4.1185E+07                                                       
+ % 1.5000E+01  3.9485E+06                                                       
+ % 3.0000E+01  1.0703E+06                                                       
+ % 5.0000E+01  6.4540E+05                                                       
+ % 1.0000E+02  3.3054E+05                                                       
+
+  REPORT NO.    1:   SRAM_SEU T O D O                        
+  RPP Dimensions: X =    3.16228  Y =    3.16228  Z =    1.00000 microns.
+  Funnel length =    0.00000 microns.
+  CROSS-SECTION INPUT   4  WEIBULL FIT: 
+      ONSET   =     1.000 MeV-cm2/milligram
+      WIDTH   =     1.000 MeV-cm2/milligram
+      POWER   =     1.000 (dimensionless)
+      PLATEAU =    10.000 square microns/bit
+  Number of bits =   1.04858E+06
+  Rates:      SEEs/bit/second     /bit/day    /device/second    /device/day
+  *****   1     1.19042E-07     1.02852E-02     1.24825E-01     1.07849E+04
+
+  REPORT NO.    2:   SRAM_SEL T O D O                        
+  RPP Dimensions: X = 1000.00000  Y = 1000.00000  Z =    1.00000 microns.
+  Funnel length =    0.00000 microns.
+  CROSS-SECTION INPUT   4  WEIBULL FIT: 
+      ONSET   =     5.000 MeV-cm2/milligram
+      WIDTH   =     1.000 MeV-cm2/milligram
+      POWER   =     1.000 (dimensionless)
+      PLATEAU = ********* square microns/bit
+  Number of bits =   1.00000E+00
+  Rates:      SEEs/bit/second     /bit/day    /device/second    /device/day
+  *****   2     1.19749E-02     1.03463E+03     1.19749E-02     1.03463E+03
+
+  REPORT NO.    3:   MCU_SEU T O D O                         
+  RPP Dimensions: X =    4.47214  Y =    4.47214  Z =    1.00000 microns.
+  Funnel length =    0.00000 microns.
+  CROSS-SECTION INPUT   4  WEIBULL FIT: 
+      ONSET   =     1.000 MeV-cm2/milligram
+      WIDTH   =     1.000 MeV-cm2/milligram
+      POWER   =     1.000 (dimensionless)
+      PLATEAU =    20.000 square microns/bit
+  Number of bits =   4.09600E+04
+  Rates:      SEEs/bit/second     /bit/day    /device/second    /device/day
+  *****   3     5.27081E-07     4.55398E-02     2.15892E-02     1.86531E+03
+
+  REPORT NO.    4:   MCU_SEFI T O D O                        
+  RPP Dimensions: X =  100.00000  Y =  100.00000  Z =    1.00000 microns.
+  Funnel length =    0.00000 microns.
+  CROSS-SECTION INPUT   4  WEIBULL FIT: 
+      ONSET   =     5.000 MeV-cm2/milligram
+      WIDTH   =     1.000 MeV-cm2/milligram
+      POWER   =     1.000 (dimensionless)
+      PLATEAU = 10000.000 square microns/bit
+  Number of bits =   1.00000E+00
+  Rates:      SEEs/bit/second     /bit/day    /device/second    /device/day
+  *****   4     9.73404E-05     8.41021E+00     9.73404E-05     8.41021E+00
+
+  REPORT NO.    5:   MCU_SEL T O D O                         
+  RPP Dimensions: X = 1000.00000  Y = 1000.00000  Z =    1.00000 microns.
+  Funnel length =    0.00000 microns.
+  CROSS-SECTION INPUT   4  WEIBULL FIT: 
+      ONSET   =     5.000 MeV-cm2/milligram
+      WIDTH   =     1.000 MeV-cm2/milligram
+      POWER   =     1.000 (dimensionless)
+      PLATEAU = ********* square microns/bit
+  Number of bits =   1.00000E+00
+  Rates:      SEEs/bit/second     /bit/day    /device/second    /device/day
+  *****   5     1.19749E-02     1.03463E+03     1.19749E-02     1.03463E+03
+
+  REPORT NO.    6:   LREG_SET T O D O                        
+  RPP Dimensions: X =    1.41421  Y =    1.41421  Z =    1.00000 microns.
+  Funnel length =    0.00000 microns.
+  CROSS-SECTION INPUT   4  WEIBULL FIT: 
+      ONSET   =     1.000 MeV-cm2/milligram
+      WIDTH   =     1.000 MeV-cm2/milligram
+      POWER   =     1.000 (dimensionless)
+      PLATEAU =     2.000 square microns/bit
+  Number of bits =   1.00000E+00
+  Rates:      SEEs/bit/second     /bit/day    /device/second    /device/day
+  *****   6     1.62010E-11     1.39976E-06     1.62010E-11     1.39976E-06

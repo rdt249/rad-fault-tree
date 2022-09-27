@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name='Payload' gate='OR'>
+    <node name='LREG' gate='OR'>
+        <event name='$p_{LREG\_SEGR}$'/>
+        <event name='$p_{LREG\_TID}$'/>
+    </node>
+    <node name='MCU' gate='OR'>
+        <event name='$p_{MCU\_SEL}$'/>
+        <event name='$p_{MCU\_SEFI}$'/>
+        <event name='$p_{MCU\_TID}$'/>
+    </node>
+    <node name='SRAM' gate='OR'>
+        <event name='$p_{SRAM\_SEL}$'/>
+        <event name='$p_{SRAM\_TID}$'/>
+    </node>
+</node>

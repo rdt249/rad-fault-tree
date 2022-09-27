@@ -1,0 +1,92 @@
+ 31 gto.PUP                                                                210 9
+ %Created by CREME96:PROTON_UPSET_DRIVER Version  210 on  20220922 at 172434.7
+ %Input Proton Spectrum File: gto.tfx                                 
+ %Created by CREME96:TRANSPORT_DRIVER Version  210 on  20220922 at 171516.4     
+ %ZMIN =  1 ZMAX = 92  EMIN = 1.0000E-01 EMAX = 1.0000E+05 MeV/nuc  MBINS = 1002
+ %Thickness =    25.0000 mils      ALUMINUM                                     
+ %Input File to TRANSPORT_DRIVER: gto.flx                                       
+ %Created by CREME96:FLUX_DRIVER Version  210 on  20220922 at 171421.0          
+ %ZMIN =  1 ZMAX = 92                                                           
+ %IMODE  =   0 SOLAR-QUIET MODE: YEAR =  1977.0000                              
+ %ITRANS =   2 INSIDE MAGNETOSPHERE/TRAPPED PROTONS INCLUDED                    
+ %INPUT GEOMAGNETIC TRANSMISSION FILE: gto.gtf                                  
+ %Created by CREME96:GTRANS_DRIVER Version  210 on  20220922 at 171347.2        
+ %Incl =   0.000 deg  Apo = 0.3579E+05 Peri = 0.1000E+04 km   0.00   0.00   0.00
+ %ISTORM = 0 IPRECALC = 0  Grid Epoch = 1980.0   L Bin: 0.0000E+00 0.1000E+07   
+ %Relative dwell time = 0.1000E+01                                              
+ %INPUT TRAPPED PROTON FILE:            gto_ave.trp                             
+ %Created by CREME96:TRAPPED_DRIVER Version  210 on  20220922 at 171327.3       
+ %Incl =   0.000 deg  Apo = 0.3579E+05 Peri = 0.1000E+04 km   0.00   0.00   0.00
+ %AP8MIN IMOD = 0 IPRECALC = 0                                                  
+ %Relative dwell time = 0.1000E+01 L Bin: 0.0000E+00 0.1000E+07                 
+ %No. orbits =     100  No. steps/orbit =    200                                
+ %Orbital period =    10.79 hours                                               
+ %Sample energies and integral fluxes                                           
+ %   MeV       protons/m**2-sr-s                                                
+ % 1.0000E+00  2.7701E+09                                                       
+ % 3.0000E+00  2.0012E+08                                                       
+ % 6.0000E+00  4.1185E+07                                                       
+ % 1.5000E+01  3.9485E+06                                                       
+ % 3.0000E+01  1.0703E+06                                                       
+ % 5.0000E+01  6.4540E+05                                                       
+ % 1.0000E+02  3.3054E+05                                                       
+
+  REPORT NO.    1:   SRAM_SEU T O D O                        
+  CROSS-SECTION INPUT   4  WEIBULL FIT: 
+      ONSET   =     1.000 MeV
+      WIDTH   =     1.000 MeV
+      POWER   =     1.000 (dimensionless)
+      PLATEAU =     5.000 x 10**-12 cm2/bit
+  Number of bits =   1.04858E+06
+  Rates:      SEEs/bit/second     /bit/day    /device/second    /device/day
+  *****   1     6.46455E-08     5.58537E-03     6.77857E-02     5.85669E+03
+
+  REPORT NO.    2:   SRAM_SEL T O D O                        
+  CROSS-SECTION INPUT   4  WEIBULL FIT: 
+      ONSET   =    30.000 MeV
+      WIDTH   =     1.000 MeV
+      POWER   =     1.000 (dimensionless)
+      PLATEAU =     0.100 x 10**-12 cm2/bit
+  Number of bits =   1.00000E+00
+  Rates:      SEEs/bit/second     /bit/day    /device/second    /device/day
+  *****   2     1.24587E-10     1.07643E-05     1.24587E-10     1.07643E-05
+
+  REPORT NO.    3:   MCU_SEU T O D O                         
+  CROSS-SECTION INPUT   4  WEIBULL FIT: 
+      ONSET   =     1.000 MeV
+      WIDTH   =     1.000 MeV
+      POWER   =     1.000 (dimensionless)
+      PLATEAU =     5.000 x 10**-12 cm2/bit
+  Number of bits =   4.09600E+04
+  Rates:      SEEs/bit/second     /bit/day    /device/second    /device/day
+  *****   3     6.46455E-08     5.58537E-03     2.64788E-03     2.28777E+02
+
+  REPORT NO.    4:   MCU_SEFI T O D O                        
+  CROSS-SECTION INPUT   4  WEIBULL FIT: 
+      ONSET   =    15.000 MeV
+      WIDTH   =     1.000 MeV
+      POWER   =     1.000 (dimensionless)
+      PLATEAU =     0.010 x 10**-12 cm2/bit
+  Number of bits =   1.00000E+00
+  Rates:      SEEs/bit/second     /bit/day    /device/second    /device/day
+  *****   4     2.62931E-11     2.27173E-06     2.62931E-11     2.27173E-06
+
+  REPORT NO.    5:   MCU_SEL T O D O                         
+  CROSS-SECTION INPUT   4  WEIBULL FIT: 
+      ONSET   =    10.000 MeV
+      WIDTH   =     1.000 MeV
+      POWER   =     1.000 (dimensionless)
+      PLATEAU =     0.001 x 10**-12 cm2/bit
+  Number of bits =   1.00000E+00
+  Rates:      SEEs/bit/second     /bit/day    /device/second    /device/day
+  *****   5     4.43484E-12     3.83170E-07     4.43484E-12     3.83170E-07
+
+  REPORT NO.    6:   LREG_SET T O D O                        
+  CROSS-SECTION INPUT   4  WEIBULL FIT: 
+      ONSET   =     1.000 MeV
+      WIDTH   =     1.000 MeV
+      POWER   =     1.000 (dimensionless)
+      PLATEAU =     0.100 x 10**-12 cm2/bit
+  Number of bits =   1.00000E+00
+  Rates:      SEEs/bit/second     /bit/day    /device/second    /device/day
+  *****   6     1.29291E-09     1.11707E-04     1.29291E-09     1.11707E-04

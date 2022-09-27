@@ -1,0 +1,36 @@
+ 35 gto8.DSE                                                               21011
+ %Created by CREME96:DOSE_DRIVER Version  210 on  20220923 at 031508.5
+ %Average Dose =  3.759E-07 rad/sec =  1.186E-02 krad/year
+ %ZMIN =  1 ZMAX = 92 LETMIN = 1.00E+00 LETMAX = 1.10E+05 MeV-cm2/g
+ %EMINCUT = 1.00E-01 EMAXCUT = 1.00E+05 MeV/nuc
+ %TARGET MATERIAL = SILICON     
+ %Input File to DOSE_DRIVER: gto8.tfx                                     
+ %Created by CREME96:TRANSPORT_DRIVER Version  210 on  20220923 at 024837.9     
+ %ZMIN =  1 ZMAX = 92  EMIN = 1.0000E-01 EMAX = 1.0000E+05 MeV/nuc  MBINS = 1002
+ %Thickness =    25.0000 mils      ALUMINUM                                     
+ %Input File to TRANSPORT_DRIVER: gto8.flx                                      
+ %Created by CREME96:FLUX_DRIVER Version  210 on  20220923 at 024236.8          
+ %ZMIN =  1 ZMAX = 92                                                           
+ %IMODE  =   0 SOLAR-QUIET MODE: YEAR =  1977.0000                              
+ %ITRANS =   2 INSIDE MAGNETOSPHERE/TRAPPED PROTONS INCLUDED                    
+ %INPUT GEOMAGNETIC TRANSMISSION FILE: gto.gt8                                  
+ %Created by CREME96:GTRANS_DRIVER Version  210 on  20220923 at 023352.3        
+ %Incl =   0.000 deg  Apo = 0.3579E+05 Peri = 0.1000E+04 km   0.00   0.00   0.00
+ %ISTORM = 0 IPRECALC = 0  Grid Epoch = 1980.0   L Bin: 0.4520E+01 0.5530E+01   
+ %Relative dwell time = 0.1589E+00                                              
+ %INPUT TRAPPED PROTON FILE:            gto_ave.tr8                             
+ %Created by CREME96:TRAPPED_DRIVER Version  210 on  20220923 at 023305.4       
+ %Incl =   0.000 deg  Apo = 0.3579E+05 Peri = 0.1000E+04 km   0.00   0.00   0.00
+ %AP8MIN IMOD = 0 IPRECALC = 0                                                  
+ %Relative dwell time = 0.1600E+00 L Bin: 0.4520E+01 0.5530E+01                 
+ %No. orbits =     100  No. steps/orbit =    200                                
+ %Orbital period =    10.79 hours                                               
+ %Sample energies and integral fluxes                                           
+ %   MeV       protons/m**2-sr-s                                                
+ % 1.0000E+00  3.8898E+07                                                       
+ % 3.0000E+00  9.2487E+02                                                       
+ % 6.0000E+00  0.0000E+00                                                       
+ % 1.5000E+01  0.0000E+00                                                       
+ % 3.0000E+01  0.0000E+00                                                       
+ % 5.0000E+01  0.0000E+00                                                       
+ % 1.0000E+02  0.0000E+00                                                       

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name='Payload' gate='OR'>
+    <node name='LREG' gate='OR'>
+        <event name='TID'/>
+    </node>
+    <node name='MCU' gate='OR'>
+        <event name='SEL'/>
+        <event name='SEFI'/>
+        <event name='TID'/>
+    </node>
+    <node name='SRAM' gate='OR'>
+        <event name='SEL'/>
+        <event name='TID'/>
+    </node>
+</node>

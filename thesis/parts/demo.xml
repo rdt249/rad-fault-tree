@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lib>
+    <node name='SRAM' id='MEM123' gate='OR'>
+        <event name='pSEU' model='Weibull' params='1,5e-8'/>.
+        <event name='pSEL' model='Weibull' params='30,1e-9' repair='1'/>
+        <event name='SEU' model='Weibull' params='1,1e-7'/>
+        <event name='SEL' model='Weibull' params='5,1e-2' repair='1'/>
+        <event name='TID' model='Lognormal' params='5,0.1' repair='\infty'/>
+    </node>
+    <node name='MCU' id='MCU123' gate='OR'>
+        <event name='SEU' probs='SRAM_SEU' prob='0.01'/>
+        <event name='SEFI' probs='MCU_SEFI' prob='0.01' repair='1'/>
+        <event name='SEL' probs='MCU_SEL' prob='0.01' repair='1'/>
+        <event name='TID' probs='MCU_TID' prob='0.01' repair='\infty'/>
+        <link name='LREG'/>
+    </node>
+    <node name='LREG' id='REG123' gate='OR'>
+        <event name='SET' probs='LREG_SET' prob='0.01'/>
+        <event name='SEGR' probs='LREG_SEGR' prob='0.01' repair='\infty'/>
+        <event name='TID' probs='LREG_TID' prob='0.10' repair='\infty'/>
+    </node>
+</lib>
