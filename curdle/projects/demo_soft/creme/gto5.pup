@@ -1,0 +1,62 @@
+ 31 gto5.PUP                                                               210 9
+ %Created by CREME96:PROTON_UPSET_DRIVER Version  210 on  20220926 at 144112.6
+ %Input Proton Spectrum File: gto5.tfx                                
+ %Created by CREME96:TRANSPORT_DRIVER Version  210 on  20220923 at 031855.0     
+ %ZMIN =  1 ZMAX = 92  EMIN = 1.0000E-01 EMAX = 1.0000E+05 MeV/nuc  MBINS = 1002
+ %Thickness =    25.0000 mils      ALUMINUM                                     
+ %Input File to TRANSPORT_DRIVER: gto5.flx                                      
+ %Created by CREME96:FLUX_DRIVER Version  210 on  20220923 at 024137.0          
+ %ZMIN =  1 ZMAX = 92                                                           
+ %IMODE  =   0 SOLAR-QUIET MODE: YEAR =  1977.0000                              
+ %ITRANS =   2 INSIDE MAGNETOSPHERE/TRAPPED PROTONS INCLUDED                    
+ %INPUT GEOMAGNETIC TRANSMISSION FILE: gto.gt5                                  
+ %Created by CREME96:GTRANS_DRIVER Version  210 on  20220923 at 023352.3        
+ %Incl =   0.000 deg  Apo = 0.3579E+05 Peri = 0.1000E+04 km   0.00   0.00   0.00
+ %ISTORM = 0 IPRECALC = 0  Grid Epoch = 1980.0   L Bin: 0.2480E+01 0.3030E+01   
+ %Relative dwell time = 0.4814E-01                                              
+ %INPUT TRAPPED PROTON FILE:            gto_ave.tr5                             
+ %Created by CREME96:TRAPPED_DRIVER Version  210 on  20220923 at 023305.3       
+ %Incl =   0.000 deg  Apo = 0.3579E+05 Peri = 0.1000E+04 km   0.00   0.00   0.00
+ %AP8MIN IMOD = 0 IPRECALC = 0                                                  
+ %Relative dwell time = 0.4878E-01 L Bin: 0.2480E+01 0.3030E+01                 
+ %No. orbits =     100  No. steps/orbit =    200                                
+ %Orbital period =    10.79 hours                                               
+ %Sample energies and integral fluxes                                           
+ %   MeV       protons/m**2-sr-s                                                
+ % 1.0000E+00  2.3172E+10                                                       
+ % 3.0000E+00  1.1316E+09                                                       
+ % 6.0000E+00  6.8351E+07                                                       
+ % 1.5000E+01  1.7451E+06                                                       
+ % 3.0000E+01  8.9479E+04                                                       
+ % 5.0000E+01  9.9070E+03                                                       
+ % 1.0000E+02  4.4409E+02                                                       
+
+  REPORT NO.    1:   SRAM_SEL T O D O                        
+  CROSS-SECTION INPUT   4  WEIBULL FIT: 
+      ONSET   =    30.000 MeV
+      WIDTH   =     1.000 MeV
+      POWER   =     1.000 (dimensionless)
+      PLATEAU =     0.100 x 10**-12 cm2/bit
+  Number of bits =   1.00000E+00
+  Rates:      SEEs/bit/second     /bit/day    /device/second    /device/day
+  *****   1     7.16242E-12     6.18833E-07     7.16242E-12     6.18833E-07
+
+  REPORT NO.    2:   MCU_SEFI T O D O                        
+  CROSS-SECTION INPUT   4  WEIBULL FIT: 
+      ONSET   =    15.000 MeV
+      WIDTH   =     1.000 MeV
+      POWER   =     1.000 (dimensionless)
+      PLATEAU =     0.010 x 10**-12 cm2/bit
+  Number of bits =   1.00000E+00
+  Rates:      SEEs/bit/second     /bit/day    /device/second    /device/day
+  *****   2     6.93825E-12     5.99465E-07     6.93825E-12     5.99465E-07
+
+  REPORT NO.    3:   MCU_SEL T O D O                         
+  CROSS-SECTION INPUT   4  WEIBULL FIT: 
+      ONSET   =    10.000 MeV
+      WIDTH   =     1.000 MeV
+      POWER   =     1.000 (dimensionless)
+      PLATEAU =     0.001 x 10**-12 cm2/bit
+  Number of bits =   1.00000E+00
+  Rates:      SEEs/bit/second     /bit/day    /device/second    /device/day
+  *****   3     1.88679E-12     1.63019E-07     1.88679E-12     1.63019E-07
