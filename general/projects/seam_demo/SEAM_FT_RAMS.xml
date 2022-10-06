@@ -1,0 +1,477 @@
+<?xml version="1.0"?>
+<opsa-mef name="FT_SEAM_">
+	<define-fault-tree name="FT_SEAM">
+		<define-gate name="LF_Count_Number_of_Upsets">
+			<or>
+				<event name="LF_Run_Experiment"/>
+				<event name="LF_Detect_and_Mitigate_Radiation_Effects"/>
+			</or>
+		</define-gate>
+		<define-gate name="LF_Memory_Logic_Translation">
+				<event name="LC_Logic_Translation"/>
+		</define-gate>
+		<define-gate name="LC_Power_DFF_LS">
+			<or>
+				<event name="FMAND_Power_DFF_LS_SEL"/>
+				<event name="FMAND_Power_DFF_LS_TID"/>
+			</or>
+		</define-gate>
+		<define-gate name="LF_Memory_Control">
+			<or>
+				<event name="LC_Control"/>
+				<event name="Control_out_of_spec_data"/>
+			</or>
+		</define-gate>
+		<define-gate name="LF_DisconnectPower">
+				<event name="LC_VUC"/>
+		</define-gate>
+		<define-gate name="LF_Run_Experiment">
+			<or>
+				<event name="LF_Provide_Regulated_Power"/>
+				<event name="LF_Read_and_Write_to_Memory"/>
+			</or>
+		</define-gate>
+		<define-gate name="LF_Provide_Regulated_Power">
+				<event name="LC_Power"/>
+		</define-gate>
+		<define-gate name="LF_Detect_and_Mitigate_SEFI">
+			<or>
+				<event name="LC_Power_uC_LT_WDT"/>
+				<event name="LC_Control_Program_Mem"/>
+			</or>
+		</define-gate>
+		<define-gate name="LF_Detect_and_Mitigate_Radiation_Effects">
+			<or>
+				<event name="LF_DisconnectPower"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+				<event name="LF_Detect_and_Mitigate_SEFI"/>
+			</or>
+		</define-gate>
+		<define-gate name="LF_Detect_and_Mitigate_SEL">
+			<or>
+				<event name="LC_Power_uC_LT_LS"/>
+				<event name="LC_Power_SRAM_IO_LS"/>
+				<event name="LC_Power_SRAM_Core_LS"/>
+				<event name="LC_Power_SRAM_Control_LS"/>
+				<event name="LC_Power_DFF_LS"/>
+			</or>
+		</define-gate>
+		<define-gate name="LF_Read_and_Write_to_Memory">
+			<or>
+				<event name="LF_Memory_Control"/>
+				<event name="LF_Memory_Logic_Translation"/>
+				<event name="LF_DUT"/>
+			</or>
+		</define-gate>
+		<define-gate name="LC_Control_Program_Mem">
+			<or>
+				<event name="FMAND_Control_Program_Mem_TID"/>
+				<event name="FMAND_Control_Program_Mem_SEL"/>
+			</or>
+		</define-gate>
+		<define-gate name="LC_Power_uC_LT_WDT">
+			<or>
+				<event name="FMAND_Power_uC_LT_WDT_TID"/>
+				<event name="FMAND_Power_uC_LT_WDT_SEL"/>
+			</or>
+		</define-gate>
+		<define-gate name="LC_Power_uC_LT_LS">
+			<or>
+				<event name="FMAND_Power_uC_LT_LS_SEL"/>
+				<event name="FMAND_Power_uC_LT_LS_TID"/>
+			</or>
+		</define-gate>
+		<define-gate name="LC_Power_SRAM_IO_LS">
+			<or>
+				<event name="FMAND_Power_SRAM_IO_LS_SEL"/>
+				<event name="FMAND_Power_SRAM_IO_LS_TID"/>
+			</or>
+		</define-gate>
+		<define-gate name="LC_Power_SRAM_Core_LS">
+			<or>
+				<event name="FMAND_Power_SRAM_Core_LS_SEL"/>
+				<event name="FMAND_Power_SRAM_Core_LS_TID"/>
+			</or>
+		</define-gate>
+		<define-gate name="LC_Power_SRAM_Control_LS">
+			<or>
+				<event name="FMAND_Power_SRAM_Control_LS_SEL"/>
+				<event name="FMAND_Power_SRAM_Control_LS_TID"/>
+			</or>
+		</define-gate>
+		<define-gate name="LF_DUT">
+				<event name="LC_DUT"/>
+		</define-gate>
+		<define-gate name="LC_DUT">
+			<or>
+				<event name="FM_DUT_ThermalDamage"/>
+				<event name="FM_DUT_Open"/>
+				<event name="FM_DUT_Short"/>
+				<event name="FMAND_DUT_SEL"/>
+				<event name="FMAND_DUT_TID"/>
+			</or>
+		</define-gate>
+		<define-gate name="LC_Control">
+			<or>
+				<event name="FMAND_Control_uC_SEFI"/>
+				<event name="FMAND_Control_uC_TID"/>
+				<event name="FMAND_Control_uC_SEL"/>
+			</or>
+		</define-gate>
+		<define-gate name="LC_Logic_Translation">
+			<or>
+				<event name="FMAND_Logic_Translation_Address_TID"/>
+				<event name="FMAND_Logic_Translation_Address_SEL"/>
+				<event name="FMAND_Logic_Translation_Control_TID"/>
+				<event name="FMAND_Logic_Translation_Control_SEL"/>
+				<event name="FMAND_Logic_Translation_Data_TID"/>
+				<event name="FMAND_Logic_Translation_Data_SEL"/>
+				<event name="FMAND_Logic_Translation_DataIn_TID"/>
+				<event name="FMAND_Logic_Translation_DataIn_SEL"/>
+				<event name="FMAND_Logic_Translation_DataOut_TID"/>
+				<event name="FMAND_Logic_Translation_DataOut_SEL"/>
+			</or>
+		</define-gate>
+		<define-gate name="Control_out_of_spec_data">
+			<or>
+				<event name="FMAND_Logic_Translation_Address_TID"/>
+				<event name="FMAND_Logic_Translation_Control_TID"/>
+				<event name="FMAND_Logic_Translation_Data_TID"/>
+			</or>
+		</define-gate>
+		<define-gate name="LC_Power">
+			<or>
+				<event name="FM_Power_SRAM_Core_LR_TID"/>
+				<event name="FM_Power_SRAM_Control_LR_TID"/>
+				<event name="FM_Power_SRAM_IO_LR_TID"/>
+				<event name="FM_Power_SRAM_Power_DFF_TID"/>
+				<event name="FMAND_Power_SRAM_Core_LR_SEL"/>
+				<event name="FMAND_Power_SRAM_Control_LR_SEL"/>
+				<event name="FMAND_Power_SRAM_IO_LR_SEL"/>
+				<event name="FMAND_Power_SRAM_Power_DFF_SEL"/>
+			</or>
+		</define-gate>
+		<define-gate name="FMAND_Control_Program_Mem_TID">
+			<and>
+				<event name="FM_Control_Program_Mem_TID"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Control_Program_Mem_SEL">
+			<and>
+				<event name="FM_Control_Program_Mem_SEL"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Control_uC_SEFI">
+			<and>
+				<event name="FM_Control_uC_SEFI"/>
+				<event name="LF_Detect_and_Mitigate_SEFI"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Control_uC_TID">
+			<and>
+				<event name="FM_Control_uC_TID"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Control_uC_SEL">
+			<and>
+				<event name="FM_Control_uC_SEL"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Logic_Translation_Address_TID">
+			<and>
+				<event name="FM_Logic_Translation_Address_TID"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Logic_Translation_Address_SEL">
+			<and>
+				<event name="FM_Logic_Translation_Address_SEL"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Logic_Translation_Control_TID">
+			<and>
+				<event name="FM_Logic_Translation_Control_TID"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+				<event name="LF_DisconnectPower"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Logic_Translation_Control_SEL">
+			<and>
+				<event name="FM_Logic_Translation_Control_SEL"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Logic_Translation_Data_TID">
+			<and>
+				<event name="FM_Logic_Translation_Data_TID"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Logic_Translation_Data_SEL">
+			<and>
+				<event name="FM_Logic_Translation_Data_SEL"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Logic_Translation_DataIn_TID">
+			<and>
+				<event name="FM_Logic_Translation_DataIn_TID"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Logic_Translation_DataIn_SEL">
+			<and>
+				<event name="FM_Logic_Translation_DataIn_SEL"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Logic_Translation_DataOut_TID">
+			<and>
+				<event name="FM_Logic_Translation_DataOut_TID"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Logic_Translation_DataOut_SEL">
+			<and>
+				<event name="FM_Logic_Translation_DataOut_SEL"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Power_SRAM_IO_LS_SEL">
+			<and>
+				<event name="FM_Power_SRAM_IO_LS_SEL"/>
+				<event name="LF_DisconnectPower"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Power_SRAM_IO_LS_TID">
+			<and>
+				<event name="FM_Power_SRAM_IO_LS_TID"/>
+				<event name="LF_DisconnectPower"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Power_DFF_LS_SEL">
+			<and>
+				<event name="FM_Power_DFF_LS_SEL"/>
+				<event name="LF_DisconnectPower"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Power_DFF_LS_TID">
+			<and>
+				<event name="FM_Power_DFF_LS_TID"/>
+				<event name="LF_DisconnectPower"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Power_uC_LT_WDT_TID">
+			<and>
+				<event name="FM_Power_uC_LT_WDT_TID"/>
+				<event name="LF_DisconnectPower"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Power_uC_LT_WDT_SEL">
+			<and>
+				<event name="FM_Power_uC_LT_WDT_SEL"/>
+				<event name="LF_DisconnectPower"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Power_uC_LT_LS_SEL">
+			<and>
+				<event name="FM_Power_uC_LT_LS_SEL"/>
+				<event name="LF_DisconnectPower"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Power_uC_LT_LS_TID">
+			<and>
+				<event name="FM_Power_uC_LT_LS_TID"/>
+				<event name="LF_DisconnectPower"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Power_SRAM_Core_LR_SEL">
+			<and>
+				<event name="FM_Power_SRAM_Core_LR_SEL"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Power_SRAM_Control_LR_SEL">
+			<and>
+				<event name="FM_Power_SRAM_Control_LR_SEL"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Power_SRAM_IO_LR_SEL">
+			<and>
+				<event name="FM_Power_SRAM_IO_LR_SEL"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Power_SRAM_Control_LS_SEL">
+			<and>
+				<event name="FM_Power_SRAM_Control_LS_SEL"/>
+				<event name="LF_DisconnectPower"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Power_SRAM_Control_LS_TID">
+			<and>
+				<event name="FM_Power_SRAM_Control_LS_TID"/>
+				<event name="LF_DisconnectPower"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Power_SRAM_Core_LS_SEL">
+			<and>
+				<event name="FM_Power_SRAM_Core_LS_SEL"/>
+				<event name="LF_DisconnectPower"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Power_SRAM_Core_LS_TID">
+			<and>
+				<event name="FM_Power_SRAM_Core_LS_TID"/>
+				<event name="LF_DisconnectPower"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_Power_SRAM_Power_DFF_SEL">
+			<and>
+				<event name="FM_Power_SRAM_Power_DFF_SEL"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_DUT_SEL">
+			<and>
+				<event name="FM_DUT_SEL"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_DUT_TID">
+			<and>
+				<event name="FM_DUT_TID"/>
+				<event name="LF_Detect_and_Mitigate_SEL"/>
+			</and>
+		</define-gate>
+		<define-basic-event name="FM_Power_DFF_LS_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_DFF_LS_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="LC_VUC">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Control_Program_Mem_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Control_Program_Mem_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_uC_LT_WDT_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_uC_LT_WDT_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_uC_LT_LS_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_uC_LT_LS_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_SRAM_IO_LS_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_SRAM_IO_LS_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_SRAM_Core_LS_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_SRAM_Core_LS_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_SRAM_Control_LS_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_SRAM_Control_LS_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_DUT_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_DUT_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_DUT_ThermalDamage">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_DUT_Open">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_DUT_Short">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Control_uC_SEFI">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Control_uC_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Control_uC_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Logic_Translation_Address_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Logic_Translation_Address_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Logic_Translation_Control_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Logic_Translation_Control_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Logic_Translation_Data_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Logic_Translation_Data_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Logic_Translation_DataIn_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Logic_Translation_DataIn_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Logic_Translation_DataOut_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Logic_Translation_DataOut_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_SRAM_Core_LR_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_SRAM_Core_LR_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_SRAM_Control_LR_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_SRAM_Control_LR_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_SRAM_IO_LR_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_SRAM_IO_LR_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_SRAM_Power_DFF_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_Power_SRAM_Power_DFF_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+	</define-fault-tree>
+</opsa-mef>

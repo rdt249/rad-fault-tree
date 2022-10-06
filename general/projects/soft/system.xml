@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name='Z' gate='OR'>
+    <event name='A' model='lognormal' axis='D' params='10,0.1'/>
+    <event name='B' model='exponential' axis='t' params='6.7e-8'/>
+</node>

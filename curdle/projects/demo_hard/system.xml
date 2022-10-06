@@ -5,21 +5,16 @@
         <event name='LREG_TID'/>
     </node>
     <node name='MCU' gate='OR'>
-        <node name='Harden MCU' gate='AND'>
-            <node name='Frozen MCU' gate='OR'>
-                <event name='MCU_SEL'/>
-                <event name='MCU_SEFI'/>
-            </node>
-            <node name='WDOG' gate='OR'>
-                <event name='WDOG_TID'/>
-            </node>
+        <node name='WDT_MCU_SEL' gate='AND'>
+            <event name='MCU_SEL'/>
+            <event name='WDT_TID'/>
         </node>
         <event name='MCU_TID'/>
     </node>
     <node name='SRAM' gate='OR'>
-        <node name='Harden SRAM' gate='AND'>
-            <ref name='MCU'/>
+        <node name='WDT_SRAM_SEL' gate='AND'>
             <event name='SRAM_SEL'/>
+            <event name='WDT_TID'/>
         </node>
         <event name='SRAM_TID'/>
     </node>
