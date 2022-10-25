@@ -1,196 +1,32 @@
 <node name="root" gate="or">
-  <node name="LF_Count_Number_of_Upsets" gate="or">
-    <node name="LF_Run_Experiment" gate="or">
-      <node name="LF_Provide_Regulated_Power" gate="or">
-        <node name="LC_Power" gate="or">
-          <event name="FM_Power_SRAM_Core_LR_TID" model="poisson" axis="t" params="1.0e-5"/>
-          <event name="FM_Power_SRAM_Control_LR_TID" model="poisson" axis="t" params="1.0e-5"/>
-          <event name="FM_Power_SRAM_IO_LR_TID" model="poisson" axis="t" params="1.0e-5"/>
-          <event name="FM_Power_SRAM_Power_DFF_TID" model="poisson" axis="t" params="1.0e-5"/>
-          <node name="FMAND_Power_SRAM_Core_LR_SEL" gate="and">
-            <event name="FM_Power_SRAM_Core_LR_SEL" model="poisson" axis="t" params="1.0e-5"/>
-            <ref name="LF_Detect_and_Mitigate_SEL"/>
-          </node>
-          <node name="FMAND_Power_SRAM_Control_LR_SEL" gate="and">
-            <event name="FM_Power_SRAM_Control_LR_SEL" model="poisson" axis="t" params="1.0e-5"/>
-            <ref name="LF_Detect_and_Mitigate_SEL"/>
-          </node>
-          <node name="FMAND_Power_SRAM_IO_LR_SEL" gate="and">
-            <event name="FM_Power_SRAM_IO_LR_SEL" model="poisson" axis="t" params="1.0e-5"/>
-            <ref name="LF_Detect_and_Mitigate_SEL"/>
-          </node>
-          <node name="FMAND_Power_SRAM_Power_DFF_SEL" gate="and">
-            <event name="FM_Power_SRAM_Power_DFF_SEL" model="poisson" axis="t" params="1.0e-5"/>
-            <ref name="LF_Detect_and_Mitigate_SEL"/>
-          </node>
+  <node name="System" gate="or">
+    <node name="Watchdog" gate="or">
+      <node name="WDT" gate="or">
+        <event name="WDT_TID" model="timeseries" axis="t" params="events,WDT_TID"/>
+      </node>
+    </node>
+    <node name="Payload" gate="or">
+      <node name="LDO" gate="or">
+        <event name="LDO_TID" model="timeseries" axis="t" params="events,LREG_TID"/>
+        <event name="LDO_SEGR" model="timeseries" axis="t" params="events,LREG_SEGR"/>
+      </node>
+      <node name="MCU" gate="or">
+        <event name="MCU_TID" model="timeseries" axis="t" params="events,MCU_TID"/>
+        <node name="Harden_MCU_SEL" gate="and">
+          <event name="MCU_SEL" model="timeseries" axis="t" params="events,MCU_SEL"/>
+          <ref name="Watchdog"/>
+        </node>
+        <node name="Harden_MCU_SEFI" gate="and">
+          <event name="MCU_SEFI" model="timeseries" axis="t" params="events,MCU_SEFI"/>
+          <ref name="Watchdog"/>
         </node>
       </node>
-      <node name="LF_Read_and_Write_to_Memory" gate="or">
-        <ref name="LF_Memory_Control"/>
-        <ref name="LF_Memory_Logic_Translation"/>
-        <node name="LF_DUT" gate="or">
-          <node name="LC_DUT" gate="or">
-            <event name="FM_DUT_ThermalDamage" model="poisson" axis="t" params="1.0e-5"/>
-            <event name="FM_DUT_Open" model="poisson" axis="t" params="1.0e-5"/>
-            <event name="FM_DUT_Short" model="poisson" axis="t" params="1.0e-5"/>
-            <node name="FMAND_DUT_SEL" gate="and">
-              <event name="FM_DUT_SEL" model="poisson" axis="t" params="1.0e-5"/>
-              <ref name="LF_Detect_and_Mitigate_SEL"/>
-            </node>
-            <node name="FMAND_DUT_TID" gate="and">
-              <event name="FM_DUT_TID" model="poisson" axis="t" params="1.0e-5"/>
-              <ref name="LF_Detect_and_Mitigate_SEL"/>
-            </node>
-          </node>
+      <node name="SRAM" gate="or">
+        <event name="SRAM_TID" model="timeseries" axis="t" params="events,SRAM_TID"/>
+        <node name="Harden_SRAM_SEL" gate="and">
+          <event name="SRAM_SEL" model="timeseries" axis="t" params="events,SRAM_SEL"/>
+          <ref name="Watchdog"/>
         </node>
-      </node>
-    </node>
-    <node name="LF_Detect_and_Mitigate_Radiation_Effects" gate="or">
-      <ref name="LF_DisconnectPower"/>
-      <node name="LF_Detect_and_Mitigate_SEL" gate="or">
-        <node name="LC_Power_uC_LT_LS" gate="or">
-          <node name="FMAND_Power_uC_LT_LS_SEL" gate="and">
-            <event name="FM_Power_uC_LT_LS_SEL" model="poisson" axis="t" params="1.0e-5"/>
-            <ref name="LF_DisconnectPower"/>
-          </node>
-          <node name="FMAND_Power_uC_LT_LS_TID" gate="and">
-            <event name="FM_Power_uC_LT_LS_TID" model="poisson" axis="t" params="1.0e-5"/>
-            <ref name="LF_DisconnectPower"/>
-          </node>
-        </node>
-        <node name="LC_Power_SRAM_IO_LS" gate="or">
-          <node name="FMAND_Power_SRAM_IO_LS_SEL" gate="and">
-            <event name="FM_Power_SRAM_IO_LS_SEL" model="poisson" axis="t" params="1.0e-5"/>
-            <ref name="LF_DisconnectPower"/>
-          </node>
-          <node name="FMAND_Power_SRAM_IO_LS_TID" gate="and">
-            <event name="FM_Power_SRAM_IO_LS_TID" model="poisson" axis="t" params="1.0e-5"/>
-            <ref name="LF_DisconnectPower"/>
-          </node>
-        </node>
-        <node name="LC_Power_SRAM_Core_LS" gate="or">
-          <node name="FMAND_Power_SRAM_Core_LS_SEL" gate="and">
-            <event name="FM_Power_SRAM_Core_LS_SEL" model="poisson" axis="t" params="1.0e-5"/>
-            <ref name="LF_DisconnectPower"/>
-          </node>
-          <node name="FMAND_Power_SRAM_Core_LS_TID" gate="and">
-            <event name="FM_Power_SRAM_Core_LS_TID" model="poisson" axis="t" params="1.0e-5"/>
-            <ref name="LF_DisconnectPower"/>
-          </node>
-        </node>
-        <node name="LC_Power_SRAM_Control_LS" gate="or">
-          <node name="FMAND_Power_SRAM_Control_LS_SEL" gate="and">
-            <event name="FM_Power_SRAM_Control_LS_SEL" model="poisson" axis="t" params="1.0e-5"/>
-            <ref name="LF_DisconnectPower"/>
-          </node>
-          <node name="FMAND_Power_SRAM_Control_LS_TID" gate="and">
-            <event name="FM_Power_SRAM_Control_LS_TID" model="poisson" axis="t" params="1.0e-5"/>
-            <ref name="LF_DisconnectPower"/>
-          </node>
-        </node>
-        <ref name="LC_Power_DFF_LS"/>
-      </node>
-      <ref name="LF_Detect_and_Mitigate_SEFI"/>
-    </node>
-  </node>
-  <node name="LF_Memory_Logic_Translation" gate="or">
-    <node name="LC_Logic_Translation" gate="or">
-      <node name="FMAND_Logic_Translation_Address_TID" gate="and">
-        <event name="FM_Logic_Translation_Address_TID" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_Detect_and_Mitigate_SEL"/>
-      </node>
-      <node name="FMAND_Logic_Translation_Address_SEL" gate="and">
-        <event name="FM_Logic_Translation_Address_SEL" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_Detect_and_Mitigate_SEL"/>
-      </node>
-      <node name="FMAND_Logic_Translation_Control_TID" gate="and">
-        <event name="FM_Logic_Translation_Control_TID" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_Detect_and_Mitigate_SEL"/>
-        <ref name="LF_DisconnectPower"/>
-      </node>
-      <node name="FMAND_Logic_Translation_Control_SEL" gate="and">
-        <event name="FM_Logic_Translation_Control_SEL" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_Detect_and_Mitigate_SEL"/>
-      </node>
-      <node name="FMAND_Logic_Translation_Data_TID" gate="and">
-        <event name="FM_Logic_Translation_Data_TID" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_Detect_and_Mitigate_SEL"/>
-      </node>
-      <node name="FMAND_Logic_Translation_Data_SEL" gate="and">
-        <event name="FM_Logic_Translation_Data_SEL" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_Detect_and_Mitigate_SEL"/>
-      </node>
-      <node name="FMAND_Logic_Translation_DataIn_TID" gate="and">
-        <event name="FM_Logic_Translation_DataIn_TID" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_Detect_and_Mitigate_SEL"/>
-      </node>
-      <node name="FMAND_Logic_Translation_DataIn_SEL" gate="and">
-        <event name="FM_Logic_Translation_DataIn_SEL" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_Detect_and_Mitigate_SEL"/>
-      </node>
-      <node name="FMAND_Logic_Translation_DataOut_TID" gate="and">
-        <event name="FM_Logic_Translation_DataOut_TID" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_Detect_and_Mitigate_SEL"/>
-      </node>
-      <node name="FMAND_Logic_Translation_DataOut_SEL" gate="and">
-        <event name="FM_Logic_Translation_DataOut_SEL" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_Detect_and_Mitigate_SEL"/>
-      </node>
-    </node>
-  </node>
-  <node name="LC_Power_DFF_LS" gate="or">
-    <node name="FMAND_Power_DFF_LS_SEL" gate="and">
-      <event name="FM_Power_DFF_LS_SEL" model="poisson" axis="t" params="1.0e-5"/>
-      <ref name="LF_DisconnectPower"/>
-    </node>
-    <node name="FMAND_Power_DFF_LS_TID" gate="and">
-      <event name="FM_Power_DFF_LS_TID" model="poisson" axis="t" params="1.0e-5"/>
-      <ref name="LF_DisconnectPower"/>
-    </node>
-  </node>
-  <node name="LF_Memory_Control" gate="or">
-    <node name="LC_Control" gate="or">
-      <node name="FMAND_Control_uC_SEFI" gate="and">
-        <event name="FM_Control_uC_SEFI" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_Detect_and_Mitigate_SEFI"/>
-      </node>
-      <node name="FMAND_Control_uC_TID" gate="and">
-        <event name="FM_Control_uC_TID" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_Detect_and_Mitigate_SEL"/>
-      </node>
-      <node name="FMAND_Control_uC_SEL" gate="and">
-        <event name="FM_Control_uC_SEL" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_Detect_and_Mitigate_SEL"/>
-      </node>
-    </node>
-    <node name="Control_out_of_spec_data" gate="or">
-      <ref name="FMAND_Logic_Translation_Address_TID"/>
-      <ref name="FMAND_Logic_Translation_Control_TID"/>
-      <ref name="FMAND_Logic_Translation_Data_TID"/>
-    </node>
-  </node>
-  <node name="LF_DisconnectPower" gate="or">
-    <event name="LC_VUC" model="poisson" axis="t" params="1.0e-5"/>
-  </node>
-  <node name="LF_Detect_and_Mitigate_SEFI" gate="or">
-    <node name="LC_Power_uC_LT_WDT" gate="or">
-      <node name="FMAND_Power_uC_LT_WDT_TID" gate="and">
-        <event name="FM_Power_uC_LT_WDT_TID" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_DisconnectPower"/>
-      </node>
-      <node name="FMAND_Power_uC_LT_WDT_SEL" gate="and">
-        <event name="FM_Power_uC_LT_WDT_SEL" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_DisconnectPower"/>
-      </node>
-    </node>
-    <node name="LC_Control_Program_Mem" gate="or">
-      <node name="FMAND_Control_Program_Mem_TID" gate="and">
-        <event name="FM_Control_Program_Mem_TID" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_Detect_and_Mitigate_SEL"/>
-      </node>
-      <node name="FMAND_Control_Program_Mem_SEL" gate="and">
-        <event name="FM_Control_Program_Mem_SEL" model="poisson" axis="t" params="1.0e-5"/>
-        <ref name="LF_Detect_and_Mitigate_SEL"/>
       </node>
     </node>
   </node>

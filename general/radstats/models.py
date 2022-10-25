@@ -21,6 +21,11 @@ def exponential(x,rate): # x must be 1 longer than rate
         y = [1 - np.exp(-r * d) for r,d in zip(diff,rate)]
     return y
 
+def timeseries(x,file,column):
+    df = pd.read_csv(file)[column]
+    return df.loc[::round(len(df)/len(x))].values
+
+
 example = {
     'GCR':{
         #'SRAM_SEU':{'Saturation':1e-2,'Threshold':1},

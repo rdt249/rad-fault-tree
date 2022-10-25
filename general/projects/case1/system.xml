@@ -1,0 +1,15 @@
+<node name="Payload" gate="or"> 
+  <node name="REG" gate="or">
+    <event name="REG_TID" model="timeseries" axis="t" params="events,REG_TID"/>
+    <event name="REG_DSEE" model="timeseries" axis="t" params="events,REG_DSEE"/>
+  </node>
+  <node name="MCU" gate="or">
+    <event name="MCU_TID" model="timeseries" axis="t" params="events,MCU_TID"/>
+    <event name="MCU_SEL" model="timeseries" axis="t" params="events,MCU_SEL"/>
+    <event name="MCU_SEFI" model="timeseries" axis="t" params="events,MCU_SEFI"/>
+  </node>
+  <node name="SRAM" gate="or">
+    <event name="SRAM_SEL" model="timeseries" axis="t" params="events,SRAM_SEL"/>
+    <event name="SRAM_TID" model="timeseries" axis="t" params="events,SRAM_TID"/>
+  </node>
+</node>

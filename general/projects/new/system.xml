@@ -1,0 +1,26 @@
+<node name="Payload" gate="or">
+  <node name="LDO" gate="or">
+    <event name="LDO_TID" model="timeseries" axis="t" params="events,LREG_TID"/>
+    <event name="LDO_SEGR" model="timeseries" axis="t" params="events,LREG_SEGR"/>
+  </node>
+  <node name="MCU" gate="or">
+    <event name="MCU_TID" model="timeseries" axis="t" params="events,MCU_TID"/>
+    <node name="Harden_MCU_SEL" gate="and">
+      <event name="MCU_SEL" model="timeseries" axis="t" params="events,MCU_SEL"/>
+      <ref name="WDT"/>
+    </node>
+    <node name="Harden_MCU_SEFI" gate="and">
+      <event name="MCU_SEFI" model="timeseries" axis="t" params="events,MCU_SEFI"/>
+      <node name="WDT" gate="or">
+        <event name="WDT_TID" model="timeseries" axis="t" params="events,WDT_TID"/>
+      </node>
+    </node>
+  </node>
+  <node name="SRAM" gate="or">
+    <event name="SRAM_TID" model="timeseries" axis="t" params="events,SRAM_TID"/>
+    <node name="Harden_SRAM_SEL" gate="and">
+      <event name="SRAM_SEL" model="timeseries" axis="t" params="events,SRAM_SEL"/>
+      <ref name="WDT"/>
+    </node>
+  </node>
+</node>

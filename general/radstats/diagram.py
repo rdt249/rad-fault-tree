@@ -1,5 +1,5 @@
 import schemdraw
-from schemdraw import flow,logic,elements,segments
+from schemdraw import flow,logic,elements,segments,dsp
 from PIL import Image
 import pandas as pd
 import numpy as np
@@ -60,11 +60,17 @@ class VOTE(elements.Element):
         self.anchors = logic.Or(**kwargs).anchors
         self.segments.append(segments.SegmentText((1,0),k,fontsize=50))
 
+class Ref(elements.Element):
+    def __init__(self, dot=False, label=False, *d, **kwargs):
+        super().__init__(*d,**kwargs)
+        self = flow.Decision(**kwargs)
+        self.anchors = flow.Decision(**kwargs).anchors
+
 pos = {}
 
 def get_pos(system,element,mode):
     global pos
-    if element.tag == 'ref': element = system.xpath(f'..//node[@name="{element.get("name")}"]')[0]
+    #if element.tag == 'ref': element = system.xpath(f'..//node[@name="{element.get("name")}"]')[0]
     if element not in pos.keys():
         x = [get_pos(system,child,mode=mode)[0] for child in element]
         y = [get_pos(system,child,mode=mode)[1] for child in element]
@@ -102,17 +108,17 @@ def get_rate(system,element,tstep=1):
 def newFT(system,root=None,file='diagram.png',probs=None,rates=None,tstep=1,color=False,scale=2):
     root = system.getroot() if root is None else system.xpath(f'..//node[@name="{root}"]')[0]
     nodes = root.xpath('.//node') + [root]
-    events = root.xpath('.//event')
-    refs = root.xpath('.//ref')
-    for ref in refs:
-        if system.xpath(f'..//node[@name="{ref.get("name")}"]')[0] in nodes: continue
-        else: 
-            nodes = system.xpath(f'..//node[@name="{ref.get("name")}"]/..//node') + nodes
-            events = system.xpath(f'..//node[@name="{ref.get("name")}"]/.//event') + events
+    events = root.xpath('.//*[local-name()="event" or local-name()="ref"]')
+    # refs = root.xpath('.//ref')
+    # for ref in refs:
+    #     if system.xpath(f'..//node[@name="{ref.get("name")}"]')[0] in nodes: continue
+    #     else: 
+    #         nodes = system.xpath(f'..//node[@name="{ref.get("name")}"]/..//node') + nodes
+    #         events = system.xpath(f'..//node[@name="{ref.get("name")}"]/.//event') + events
     global pos
     pos = {}
-    schemdraw.config(inches_per_unit=scale,fontsize=fontsize*scale,lw=scale)
-    for i,event in enumerate(system.xpath('..//event')):
+    schemdraw.config(inches_per_unit=scale,fontsize=fontsize*scale,lw=scale,font='Times New Roman')
+    for i,event in enumerate(events):
         pos[event] = (i * spacing[0],-spacing[1] * len(event.xpath('ancestor::node')))
     get_pos(system,root,mode='FT')
     if probs is not None:
@@ -138,10 +144,19 @@ def newFT(system,root=None,file='diagram.png',probs=None,rates=None,tstep=1,colo
                 r = np.around(float(event.get('rate')),decimals)
                 label += '\nr=' + str(r)
                 if color: fill = (1,1-r/2,1-r/2,r/2)
-            d += flow.Terminal(w=shape[0],h=shape[1],fill=fill).anchor('N').at(pos[event]).label(label)
+            if event.tag == 'event':
+                d += flow.Terminal(w=shape[0],h=shape[1],fill=fill).anchor('N').at(pos[event]).label(label)
+            if event.tag == 'ref':
+                d += (new := flow.Box(w=shape[0],h=shape[1],fill=fill).anchor('N').at(pos[event]).label('\n'+label))
+                new.segments.pop(0)
+                new.segments.append(segments.Segment([(0,-shape[1]/2),(shape[0],-shape[1]/2)]))
+                new.segments.append(segments.Segment([(0,-shape[1]/2),(shape[0]/2,shape[1]/2)]))
+                new.segments.append(segments.Segment([(shape[0]/2,shape[1]/2),(shape[0],-shape[1]/2)]))
         for node in nodes:
             fill = (1,1,1,0)
             label = node.get('name')
+            Shape = flow.Box
+            if label in [n.get('name') for n in root.xpath('..//ref')]: Shape = Ref
             if index is not None: index[label] = i; i += 1; label = str(index[label])
             if probs is not None:
                 p = np.around(float(node.get('prob')),decimals)
@@ -151,17 +166,22 @@ def newFT(system,root=None,file='diagram.png',probs=None,rates=None,tstep=1,colo
                 r = np.around(float(node.get('rate')),decimals)
                 label += '\nr=' + str(r)
                 if color: fill = (1,1-r/2,1-r/2,r/2)
-            if node.get('gate',None).upper() == 'OR':
+            if node.get('name') in [n.get('name') for n in root.xpath('..//ref')]:
+                d += (new := flow.Box(w=shape[0],h=shape[1],fill=fill).anchor('N').at(pos[node]).label('\n'+label))
+                new.segments.pop(0)
+                new.segments.append(segments.Segment([(0,-shape[1]/2),(shape[0],-shape[1]/2)]))
+                new.segments.append(segments.Segment([(0,-shape[1]/2),(shape[0]/2,shape[1]/2)]))
+                new.segments.append(segments.Segment([(shape[0]/2,shape[1]/2),(shape[0],-shape[1]/2)]))
+            else:
                 d += (new := flow.Box(w=shape[0],h=shape[1],fill=fill).anchor('N').at(pos[node]).label(label))
+            if node.get('gate',None).upper() == 'OR':
                 d += (new := logic.Or(inputs=1,fill=fill).at(new.S).down().reverse())
             if node.get('gate',None).upper() == 'AND':
-                d += (new := flow.Box(w=shape[0],h=shape[1],fill=fill).anchor('N').at(pos[node]).label(label))
                 d += (new := logic.And(inputs=1,fill=fill).at(new.S).down().reverse())
             if node.get('gate',None).upper() == 'VOTE':
-                d += (new := flow.Box(w=shape[0],h=shape[1],fill=fill).anchor('N').at(pos[node]).label(label))
                 d += (new := VOTE(inputs=1,k=node.get('k'),fill=fill).at(new.S).down().reverse())
             for sub in node.xpath('*'):
-                if sub.tag == 'ref': sub = system.xpath(f'..//node[@name="{sub.get("name")}"]')[0]
+                # if sub.tag == 'ref': sub = system.xpath(f'..//node[@name="{sub.get("name")}"]')[0]
                 d += flow.Wire('-|').at(new.in1).to(pos[sub])
         if index is not None:
             x = pos[events[-1]][0] + spacing[0]

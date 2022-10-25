@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<opsa-mef name="FT_SEAM_">
+	<define-fault-tree name="FT_SEAM">
+		<define-gate name="LF_System">
+				<event name="LF_Payload"/>
+		</define-gate>
+		<define-gate name="LC_SRAM">
+			<or>
+				<event name="FM_SRAM_SEL"/>
+				<event name="FM_SRAM_TID"/>
+			</or>
+		</define-gate>
+		<define-gate name="LC_REG">
+			<or>
+				<event name="FM_REG_TID"/>
+				<event name="FM_REG_SEGR"/>
+			</or>
+		</define-gate>
+		<define-gate name="LF_Payload">
+			<or>
+				<event name="LC_MCU"/>
+				<event name="LC_SRAM"/>
+				<event name="LC_REG"/>
+			</or>
+		</define-gate>
+		<define-gate name="LC_MCU">
+			<or>
+				<event name="FM_MCU_TID"/>
+				<event name="FM_MCU_SEL"/>
+				<event name="FM_MCU_SEFI"/>
+			</or>
+		</define-gate>
+		<define-basic-event name="FM_SRAM_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_SRAM_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_REG_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_REG_SEGR">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_MCU_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_MCU_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_MCU_SEFI">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+	</define-fault-tree>
+</opsa-mef>

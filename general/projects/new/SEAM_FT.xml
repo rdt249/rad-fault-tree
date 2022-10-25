@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<opsa-mef name="FT_SEAM_">
+	<define-fault-tree name="FT_SEAM">
+		<define-gate name="LF_System">
+			<or>
+				<event name="LF_Watchdog"/>
+				<event name="LF_Payload"/>
+			</or>
+		</define-gate>
+		<define-gate name="LF_Watchdog">
+				<event name="LC_WDT"/>
+		</define-gate>
+		<define-gate name="LC_WDT">
+				<event name="FM_WDT_TID"/>
+		</define-gate>
+		<define-gate name="LF_Payload">
+			<or>
+				<event name="LC_LDO"/>
+				<event name="LC_MCU"/>
+				<event name="LC_SRAM"/>
+			</or>
+		</define-gate>
+		<define-gate name="LC_MCU">
+			<or>
+				<event name="FM_MCU_TID"/>
+				<event name="FMAND_MCU_SEL"/>
+				<event name="FMAND_MCU_SEFI"/>
+			</or>
+		</define-gate>
+		<define-gate name="LC_SRAM">
+			<or>
+				<event name="FM_SRAM_TID"/>
+				<event name="FMAND_SRAM_SEL"/>
+			</or>
+		</define-gate>
+		<define-gate name="LC_LDO">
+			<or>
+				<event name="FM_LDO_TID"/>
+				<event name="FM_LDO_SEL"/>
+			</or>
+		</define-gate>
+		<define-gate name="FMAND_MCU_SEL">
+			<and>
+				<event name="FM_MCU_SEL"/>
+				<event name="LF_Watchdog"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_MCU_SEFI">
+			<and>
+				<event name="FM_MCU_SEFI"/>
+				<event name="LF_Watchdog"/>
+			</and>
+		</define-gate>
+		<define-gate name="FMAND_SRAM_SEL">
+			<and>
+				<event name="FM_SRAM_SEL"/>
+				<event name="LF_Watchdog"/>
+			</and>
+		</define-gate>
+		<define-basic-event name="FM_WDT_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_MCU_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_MCU_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_MCU_SEFI">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_SRAM_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_SRAM_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_LDO_TID">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+		<define-basic-event name="FM_LDO_SEL">
+			<float value="1.0e-5"/>
+		</define-basic-event>
+	</define-fault-tree>
+</opsa-mef>

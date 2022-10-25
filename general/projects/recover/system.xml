@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name='X' gate='OR'>
+    <event name='SEL' model='exponential' axis='t' params='6.7e-8'/>
+    <event name='DSEE' model='exponential' axis='t' params='6.7e-8'/>
+    <event name='TID' model='lognormal' axis='D' params='10,0.1'/>
+</node>

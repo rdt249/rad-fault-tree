@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name='Payload' gate='OR'>
+    <node name='LREG' gate='OR'>
+        <event name='LREG_TID' model='timeseries' axis='t' params='events,LREG_TID'/>
+        <event name='LREG_SEGR' model='timeseries' axis='t' params='events,LREG_SEGR'/>
+    </node>
+    <node name='MCU' gate='OR'>
+        <event name='MCU_TID' model='timeseries' axis='t' params='events,MCU_TID'/>
+        <node name='MCU_Harden' gate='AND'>
+            <event name='WDT_TID' model='timeseries' axis='t' params='events,WDT_TID'/>
+            <node name='MCU_Stuck' gate='OR'>
+                <event name='MCU_SEFI' model='timeseries' axis='t' params='events,MCU_SEFI'/>
+                <event name='MCU_SEL' model='timeseries' axis='t' params='events,MCU_SEL'/>
+            </node>
+        </node>
+    </node>
+    <node name='SRAM' gate='OR'>
+        <event name='SRAM_TID' model='timeseries' axis='t' params='events,SRAM_TID'/>
+        <node name='SRAM_Harden' gate='AND'>
+            <event name='WDT_TID' model='timeseries' axis='t' params='events,WDT_TID'/>
+            <event name='SRAM_SEL' model='timeseries' axis='t' params='events,SRAM_SEL'/>
+        </node>
+    </node>
+</node>
